@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true">
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <property name="filename" value="organization-service"/>
+
+    <!-- The FILE and ASYNC appenders are here as examples for a production
+        configuration -->
+    <appender name="FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>\app\mib\logs\${filename}-logs.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <charset>utf-8</charset>
+            <Pattern>%d{yyyy-MM-dd} %d{HH:mm:ss} %-5level [%thread] %logger{0}: %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>info</level>
+        </filter>
+
+        <encoder>
+            <pattern>%d{yyyy-MM-dd} %d{HH:mm:ss} %-5level [%thread] %logger{0}: %m%n</pattern>
+        </encoder>
+
+    </appender>
+
+    <!--This has all mostly third party logs -->
+    <appender name="FILEETC"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>\app\mib\logs\${filename}-etc-logs.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <charset>utf-8</charset>
+            <Pattern>%d{yyyy-MM-dd} %d{HH:mm:ss}d %-5level [%thread] %logger{0}: %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>512</queueSize>
+        <appender-ref ref="FILE"/>
+    </appender>
+
+    <appender name="MIB_HTTP_AUDIT_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>\app\mib\logs\${filename}-audit-logs.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <charset>utf-8</charset>
+            <Pattern>%d{yyyy-MM-dd} %d{HH:mm:ss} %-5level [%thread] %logger{0}: %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.PRJ" level="@logback.loglevel@"/>
+
+    <logger name="javax.activation" level="OFF">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+    <logger name="javax.mail" level="WARN">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+    <logger name="javax.xml.bind" level="WARN">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+    <logger name="ch.qos.logback" level="WARN">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+    <logger name="com.codahale.metrics" level="WARN">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+    <logger name="com.ryantenney" level="WARN">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+    <logger name="com.sun.xml.internal.bind" level="WARN">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+    <logger name="com.zaxxer" level="WARN">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+    <logger name="org.bson" level="WARN">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+    <logger name="org.springframework" level="DEBUG">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+    <logger name="org.apache" level="WARN">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+    <logger name="org.hibernate" level="WARN">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+    <logger name="org.jboss" level="WARN">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+
+    <logger name="springfox" level="WARN">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+    <logger name="sun.rmi" level="WARN">
+        <appender-ref ref="FILEETC"/>
+    </logger>
+
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+    <root level="@logback.loglevel@">
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>
