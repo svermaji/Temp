@@ -13,34 +13,28 @@ import java.util.StringTokenizer;
  * This class will help in downloading bunch of urls that
  * may point to resource like images, pdfs etc.
  */
-public class ResourceDownLoader extends JFrame {
+public class ResourceDownLoader extends AppFrame {
 
-    private TextArea txtAreaStatus;
-    private Label lblStatus, lblPath, lblLocToSave;
-    private TextField txtLocToSave, txtPath;
+    private Label lblSource, lblDest;
+    private TextField txtDest, txtSource;
     private Button btnDownload;
-    private Font baseFont = new Font("Dialog", Font.PLAIN, 12);
 
     /**
      * This method initializes the form.
      */
     private void initComponents() {
-
-        setFont(baseFont);
+        
+        Container container = getContentPane();
 
         setTitle("Resource Downloader");
-        setBounds(100, 75, 550, 380);
-        setVisible(true);
 
-        lblPath = new Label();
-        txtPath = new TextField();
-        btnDownload = new Button();
-        txtAreaStatus = new TextArea();
-        lblStatus = new Label();
-        lblLocToSave = new Label();
-        txtLocToSave = new TextField();
+        lblSource = new Label("Download from");
+        txtSource = new TextField();
+        btnDownload = new Button("DownLoad");
+        lblDest = new Label("Location To Save");
+        txtDest = new TextField("Same as source");
 
-        getContentPane().setLayout(null);
+        container.setLayout(new FlowLayout());
 
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent evt) {
@@ -48,38 +42,22 @@ public class ResourceDownLoader extends JFrame {
             }
         });
 
-        lblPath.setForeground(new Color(102, 0, 0));
-        lblPath.setText("Path");
-        getContentPane().add(lblPath);
-        lblPath.setBounds(50, 10, 40, 23);
+        container.add(lblSource);
+        container.add(txtSource);
+        txtSource.setText("paths-to-download.txt");
 
-        getContentPane().add(txtPath);
-        txtPath.setText("paths-to-download.txt");
-        txtPath.setBounds(100, 10, 290, 20);
+        btnDownload.addActionListener(evt -> startDownLoad(txtSource.getText()));
+        container.add(lblDest);
+        container.add(txtDest);
+        container.add(btnDownload);
 
-        btnDownload.setLabel("DownLoad");
-        btnDownload.addActionListener(evt -> startDownLoad(txtPath.getText()));
-        getContentPane().add(btnDownload);
-        btnDownload.setBounds(430, 10, 80, 24);
+        setToCenter ();
+    }
 
-        getContentPane().add(txtAreaStatus);
-        txtAreaStatus.setBounds(100, 80, 280, 170);
-
-        lblStatus.setForeground(new Color(0, 0, 153));
-        lblStatus.setName("null");
-        lblStatus.setText("Status");
-        getContentPane().add(lblStatus);
-        lblStatus.setBounds(110, 50, 70, 20);
-
-        lblLocToSave.setForeground(new Color(0, 0, 153));
-        lblLocToSave.setText("Location To Save");
-        getContentPane().add(lblLocToSave);
-        lblLocToSave.setBounds(100, 260, 100, 20);
-
-        getContentPane().add(txtLocToSave);
-        txtLocToSave.setBounds(210, 260, 170, 20);
-
+    private void setToCenter() {
         pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     /**
@@ -99,12 +77,10 @@ public class ResourceDownLoader extends JFrame {
 
     private void downLoad(String str, String path) {
         try {
-            //System.out.println("IT is download"+path);
             FileOutputStream fos = new FileOutputStream(path);
-            String p1 = txtPath.getText();
+            String p1 = txtSource.getText();
             int li = p1.lastIndexOf("/");
             String sitename = p1.substring(0, li);
-            System.out.println("opening url: " + sitename + "/" + str);
             if (!str.startsWith("http")) str = sitename + "/" + str;
             URL u = new URL(str);
             URLConnection uc = u.openConnection();
@@ -118,9 +94,8 @@ public class ResourceDownLoader extends JFrame {
             }
             fos.flush();
             fos.close();
-            //list1.add("\n" + str);
-
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -128,13 +103,12 @@ public class ResourceDownLoader extends JFrame {
         StringTokenizer st = new StringTokenizer(s, "/");
         int ct = st.countTokens();
         String s1[] = new String[ct];
-        ////System.out.println(ct);
         for (int i = 0; i < ct; i++) {
             s1[i] = st.nextToken();
 
         }
 
-        String path1 = txtLocToSave.getText();
+        String path1 = txtDest.getText();
         for (int i = 0; i < ct - 1; i++) {
             path1 = path1 + "/" + s1[i];
 
@@ -149,7 +123,7 @@ public class ResourceDownLoader extends JFrame {
     private void startDownLoad(String str) {
 
         //System.out.println("DownLOAD :"+str);
-        String path = txtLocToSave.getText();
+        String path = txtDest.getText();
         //System.out.println(" user specified :"+path);
         String str1 = str.substring(6, str.length());
         StringTokenizer st = new StringTokenizer(str, "/");
@@ -170,5 +144,22 @@ public class ResourceDownLoader extends JFrame {
         //System.out.println("path"+path);
         downLoad(str, path);
         //System.out.println("STRSTr"+str);
+    }
+}
+
+class AppFrame extends JFrame {
+
+    private Font baseFont = new Font("Dialog", Font.PLAIN, 12);
+
+    public AppFrame () {
+        setFont(baseFont);
+        setLocationRelativeTo(null);
+        setBackground(Color.WHITE);
+        setForeground(Color.black);
+        setLayout(new FlowLayout());
+    }
+
+    public Font getBaseFont() {
+        return baseFont;
     }
 }
