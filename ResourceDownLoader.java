@@ -2,12 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.StringTokenizer;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class will help in downloading bunch of urls that
@@ -23,7 +23,7 @@ public class ResourceDownLoader extends AppFrame {
      * This method initializes the form.
      */
     private void initComponents() {
-        
+
         Container container = getContentPane();
 
         setTitle("Resource Downloader");
@@ -51,7 +51,7 @@ public class ResourceDownLoader extends AppFrame {
         container.add(txtDest);
         container.add(btnDownload);
 
-        setToCenter ();
+        setToCenter();
     }
 
     private void setToCenter() {
@@ -75,19 +75,14 @@ public class ResourceDownLoader extends AppFrame {
     }
 
 
-    private void downLoad(String str, String path) {
+    private void downLoad(String httpUrl) {
         try {
-            FileOutputStream fos = new FileOutputStream(path);
-            String p1 = txtSource.getText();
-            int li = p1.lastIndexOf("/");
-            String sitename = p1.substring(0, li);
-            if (!str.startsWith("http")) str = sitename + "/" + str;
-            URL u = new URL(str);
+            URL u = new URL(httpUrl);
             URLConnection uc = u.openConnection();
-
             InputStream in = uc.getInputStream();
             byte b[] = new byte[500];
             int i = in.read(b);
+            FileOutputStream fos = new FileOutputStream(getDestPath(httpUrl));
             while (i != -1) {
                 fos.write(b, 0, i);
                 i = in.read(b);
@@ -99,51 +94,28 @@ public class ResourceDownLoader extends AppFrame {
         }
     }
 
-    private void extractFileName(String s) {
-        StringTokenizer st = new StringTokenizer(s, "/");
-        int ct = st.countTokens();
-        String s1[] = new String[ct];
-        for (int i = 0; i < ct; i++) {
-            s1[i] = st.nextToken();
-
-        }
-
-        String path1 = txtDest.getText();
-        for (int i = 0; i < ct - 1; i++) {
-            path1 = path1 + "/" + s1[i];
-
-        }
-        File f = new File(path1);
-        f.mkdirs();
-
-        //System.out.println("path in extralink"+path1);
-        downLoad(s, path1 + "/" + s1[ct - 1]);
+    private boolean isHttpUrl(String s) {
+        return s.startsWith("http");
     }
 
-    private void startDownLoad(String str) {
+    private String getDestPath(String httpUrl) {
+        return httpUrl.substring(httpUrl.lastIndexOf("/") + 1);
+    }
 
-        //System.out.println("DownLOAD :"+str);
-        String path = txtDest.getText();
-        //System.out.println(" user specified :"+path);
-        String str1 = str.substring(6, str.length());
-        StringTokenizer st = new StringTokenizer(str, "/");
-        int ct = st.countTokens();
-        String ap[] = new String[ct];
-        for (int i = 0; i < ct; i++) {
-            ap[i] = st.nextToken();
+    private void startDownLoad(String srcPath) {
 
+        java.util.List<String> urlsToDownload = new ArrayList<>();
+        urlsToDownload.add(srcPath);
+
+        if (!isHttpUrl(srcPath)) {
+            urlsToDownload = getUrlsFromFile(srcPath);
         }
-        for (int i = 2; i < ct - 1; i++) {
-            path = path + "/" + ap[i];
-        }
-        //System.out.println(" dir " +path);
-        File f = new File(path);
-        f.mkdir();
-        path = path + "/" + ap[ct - 1];
 
-        //System.out.println("path"+path);
-        downLoad(str, path);
-        //System.out.println("STRSTr"+str);
+        urlsToDownload.forEach(this::downLoad);
+    }
+
+    private List<String> getUrlsFromFile(String path) {
+        return null;
     }
 }
 
@@ -151,7 +123,7 @@ class AppFrame extends JFrame {
 
     private Font baseFont = new Font("Dialog", Font.PLAIN, 12);
 
-    public AppFrame () {
+    public AppFrame() {
         setFont(baseFont);
         setLocationRelativeTo(null);
         setBackground(Color.WHITE);
