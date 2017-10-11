@@ -1,3 +1,7 @@
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -25,12 +29,33 @@ public class ResourceDownLoader extends AppFrame {
     private Button btnDownload;
     private MyLogger logger;
     private final String DEFAULT = "default (current folder)";
+    private TrustManager[] trustAllCerts;
+
+    public void createTrustManager() {
+        trustAllCerts = new TrustManager[]{
+            new X509TrustManager() {
+                public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                    return null;
+                }
+
+                public void checkClientTrusted(
+                    java.security.cert.X509Certificate[] certs, String authType) {
+                }
+
+                public void checkServerTrusted(
+                    java.security.cert.X509Certificate[] certs, String authType) {
+                }
+            }
+        };
+    }
 
     /**
      * This method initializes the form.
      */
     private void initComponents() {
 
+        createTrustManager();
+        trustAllHttps ();
         logger = MyLogger.createLogger("resource-downloader.log");
         Container container = getContentPane();
 
@@ -62,6 +87,17 @@ public class ResourceDownLoader extends AppFrame {
 
         setToCenter();
         logger.log("Program initialized");
+    }
+
+    private void trustAllHttps() {
+        try {
+            SSLContext sc = SSLContext.getInstance("SSL");
+            sc.init(null, trustAllCerts, new java.security.SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+        } catch (Exception e) {
+            logger.log(e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     private void setToCenter() {
