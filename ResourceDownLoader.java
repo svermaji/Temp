@@ -6,17 +6,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.nio.channels.Channels;
-import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
-import java.nio.file.*;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * This class will help in downloading bunch of urls that
@@ -24,14 +24,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class ResourceDownLoader extends AppFrame {
 
-    private Label lblSource, lblDest;
     private TextField txtDest, txtSource;
-    private Button btnDownload;
     private MyLogger logger;
     private final String DEFAULT = "default (current folder)";
     private TrustManager[] trustAllCerts;
 
-    public void createTrustManager() {
+    private void createTrustManager() {
         trustAllCerts = new TrustManager[]{
             new X509TrustManager() {
                 public java.security.cert.X509Certificate[] getAcceptedIssuers() {
@@ -61,17 +59,17 @@ public class ResourceDownLoader extends AppFrame {
 
         setTitle("Resource Downloader");
 
-        lblSource = new Label("Download from");
+        Label lblSource = new Label("Download from");
         txtSource = new TextField();
-        btnDownload = new Button("DownLoad");
-        lblDest = new Label("Location To Save");
+        Button btnDownload = new Button("DownLoad");
+        Label lblDest = new Label("Location To Save");
         txtDest = new TextField(DEFAULT);
 
         container.setLayout(new FlowLayout());
 
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent evt) {
-                exitForm(evt);
+                exitForm();
             }
         });
 
@@ -109,7 +107,7 @@ public class ResourceDownLoader extends AppFrame {
     /**
      * Exit the Application
      */
-    private void exitForm(WindowEvent evt) {
+    private void exitForm() {
         System.exit(0);
     }
 
@@ -201,18 +199,14 @@ public class ResourceDownLoader extends AppFrame {
 
 class AppFrame extends JFrame {
 
-    private Font baseFont = new Font("Dialog", Font.PLAIN, 12);
-
-    public AppFrame() {
+    AppFrame() {
+        Font baseFont = new Font("Dialog", Font.PLAIN, 12);
         setFont(baseFont);
         setLocationRelativeTo(null);
         setBackground(Color.WHITE);
         setForeground(Color.black);
         setLayout(new FlowLayout());
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-    public Font getBaseFont() {
-        return baseFont;
-    }
 }
