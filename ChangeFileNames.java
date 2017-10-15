@@ -3,6 +3,8 @@ import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.*;
 import java.lang.reflect.Method;
 import java.util.Date;
@@ -91,7 +93,7 @@ public class ChangeFileNames extends AppFrame {//JFrame {
     private JCheckBox jcModifyTitle;
     private JComboBox<Choices> jcb;
     private JTextArea taStatus;
-    private MyButton btnChange, btnBrowse, btnClear, btnUsage;
+    private MyButton btnChange, btnBrowse, btnClear, btnUsage, btnExit;
 
     private static final String DOUBLE_SPACE = "  ";
     private static final char SPACE_CHAR = ' ';
@@ -112,6 +114,12 @@ public class ChangeFileNames extends AppFrame {//JFrame {
     private void initComponents() throws Exception {
 
         createLogFile("ChangeFileNames.log");
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent evt) {
+                exitApp ();
+            }
+        });
 
         lblFolder = new JLabel("Folder");
         lblAction = new JLabel("Action");
@@ -144,12 +152,17 @@ public class ChangeFileNames extends AppFrame {//JFrame {
         btnBrowse = new MyButton("Browse");
         btnClear = new MyButton("Clear Status");
         btnUsage = new MyButton("Usage");
+        btnExit = new MyButton("Exit");
 
         drawUI();
 
         printUsage();
         setSize(new Dimension(1200, 500));
-        setLocation(0, 0);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }
+
+    private void exitApp() {
+        System.exit(0);
     }
 
     private void drawUI() {
@@ -175,6 +188,7 @@ public class ChangeFileNames extends AppFrame {//JFrame {
         jpDown.add(lblParam2);
         jpDown.add(txtParam2);
         jpDown.add(btnChange);
+        jpDown.add(btnExit);
         jpMid.add(jcSubFolder);
         jpMid.add(jcProcessFolders);
         jpMid.add(jcOverwrite);
@@ -1062,6 +1076,8 @@ public class ChangeFileNames extends AppFrame {//JFrame {
                         throwExcp(log + "Error: " + e1.getMessage());
                         e1.printStackTrace();
                     }
+                } else if (e.getSource() == btnExit) {
+                    exitApp();
                 } else if (e.getSource() == btnChange) {
                     //TODO: //handleControl (); // percentage
                     taStatus.setText("");
