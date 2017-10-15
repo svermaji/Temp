@@ -197,16 +197,3 @@ public class ResourceDownLoader extends AppFrame {
     }
 }
 
-class AppFrame extends JFrame {
-
-    AppFrame() {
-        Font baseFont = new Font("Dialog", Font.PLAIN, 12);
-        setFont(baseFont);
-        setLocationRelativeTo(null);
-        setBackground(Color.WHITE);
-        setForeground(Color.black);
-        setLayout(new FlowLayout());
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    }
-
-}
