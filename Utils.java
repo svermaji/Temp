@@ -139,4 +139,11 @@ public class Utils {
     }
 
 
+    public static String getFileNameNoExtn(String file, String fileType) {
+        if (!hasValue(file))
+            return "";
+        if (!hasValue(fileType))
+            return file;
+        return (file.endsWith(fileType)) ? file.substring(0, file.indexOf(fileType)-1) : file;
+    }
 }

@@ -1,8 +1,9 @@
 import java.io.File;
 
 public class Arguments {
-    private String sourceDir, fileType, choice, param1, param2;
+    private String sourceDir, fileType, param1, param2;
     private boolean processSubFolder, processFolders, overwrite, appendFolder, updateID3v2Tag;
+    private Choices choice;
 
     private File file;
 
@@ -22,11 +23,11 @@ public class Arguments {
         this.fileType = fileType;
     }
 
-    public String getChoice() {
+    public Choices getChoice() {
         return choice;
     }
 
-    public void setChoice(String choice) {
+    public void setChoice(Choices choice) {
         this.choice = choice;
     }
 
@@ -84,6 +85,10 @@ public class Arguments {
 
     public void setUpdateID3v2Tag(boolean updateID3v2Tag) {
         this.updateID3v2Tag = updateID3v2Tag;
+    }
+
+    public String getFileNameNoExtn() {
+        return Utils.getFileNameNoExtn(file.getName(), fileType);
     }
 
     public File getFile() {

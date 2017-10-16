@@ -3,24 +3,33 @@
  */
 public abstract class BaseProcessor {
 
-    protected MyLogger logger;
+    private MyLogger logger;
 
-    private void printParameters(String log, Arguments args) {
-        printParameters(log, args, true);
+    public BaseProcessor(MyLogger logger) {
+        this.logger = logger;
     }
 
-    private void printParameters(String log, Arguments args, boolean isInitMsg) {
-        logger.log(log + (isInitMsg ? "Initialising" : "Finishing") +" process with parameters: fileName ["
-                + ((args.getFile()!=null) ? args.getFile().getName() : "") + "] and [" + args.toString() + "]");
+    private void printParameters(Arguments args) {
+        printParameters(args, true);
     }
 
-    public String execute (String log, Arguments args) {
-        printParameters(log, args);
+    private void printParameters(Arguments args, boolean isInitMsg) {
+        logger.log(this.getClass().getName() + Utils.SP_DASH_SP
+            + (isInitMsg ? "Initialising" : "Finishing") + " process with parameters: fileName ["
+            + ((args.getFile() != null) ? args.getFile().getName() : "") + "] and [" + args.toString() + "]");
+    }
+
+    public String execute(Arguments args) {
+        printParameters(args);
         String result = process(args);
-        printParameters(log, args, false);
+        printParameters(args, false);
         return result;
     }
 
-    protected abstract String process (Arguments args);
+    public void log(String msg) {
+        logger.log(this.getClass().getName() + Utils.SP_DASH_SP + msg);
+    }
+
+    protected abstract String process(Arguments args);
 
 }

@@ -3,6 +3,10 @@
  */
 public class AppendStringInStart extends BaseProcessor {
 
+    public AppendStringInStart(MyLogger logger) {
+        super(logger);
+    }
+
     /**
      * Remove all occurrence of any digit in file name
      *
@@ -11,7 +15,8 @@ public class AppendStringInStart extends BaseProcessor {
      */
     @Override
     protected String process(Arguments args) {
-        return args.getParam1() + args.getFile().getName();
+        log("hurray!!!");
+        return args.getParam1() + Utils.getFileNameNoExtn (args.getFile().getName(), args.getFileType());
     }
 
 }

@@ -5,8 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.*;
-import java.lang.reflect.Method;
+import java.io.File;
+import java.io.FileFilter;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -24,46 +25,6 @@ public class ChangeFileNames extends AppFrame {
 
     private static final String MAIN = "main";
     private MyLogger logger = null;
-    private String currentMethod = MAIN + Utils.SP_DASH_SP;
-
-    private enum Choices {
-        REMOVE_NUMBERS_FROM_FILE_NAMES("Remove numbers from file names", "removeNumbersFromFileNames"),
-        REMOVE_NUMBERS_FROM_START("Remove numbers from start", "removeNumbersFromStart"),
-        REMOVE_NUMBERS_FROM_END("Remove numbers from end", "removeNumbersFromEnd"),
-        APPEND_STRING_IN_START("Append string in start", "appendStringInStart"),
-        APPEND_STRING_IN_END("Append string in end", "appendStringInEnd"),
-        REMOVE_CHARS_FROM_START("Remove chars from start", "removeCharsFromStart"),
-        REMOVE_CHARS_FROM_END("Remove chars from end", "removeCharsFromEnd"),
-        REMOVE_SPACES_FROM_START("Remove spaces from start", "removeSpacesFromStart"),
-        REMOVE_SPACES_FROM_END("Remove spaces from end", "removeSpacesFromEnd"),
-        REMOVE_SPACES_FROM_BOTH_SIDES("Remove spaces from both sides", "removeSpacesFromBothSides"),
-        REMOVE_MATCH_FROM_START("Remove match from start", "removeMatchFromStart"),
-        REMOVE_MATCH_FROM_END("Remove match from end", "removeMatchFromEnd"),
-        REMOVE_MATCH("Remove match", "removeMatch"),
-        REPLACE_MATCH_FROM_START("Replace match from start", "replaceMatchFromStart"),
-        REPLACE_MATCH_FROM_END("Replace match from end", "replaceMatchFromEnd"),
-        REPLACE_MATCH("Replace match", "replaceMatch"),
-        CONVERT_TO_TITLE_CASE("Convert to title case", "convertToTitleCase");
-
-        private String label, value;
-
-        Choices(String label, String value) {
-            this.label = label;
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        public String getLabel() {
-            return label;
-        }
-
-        public String toString() {
-            return getLabel();
-        }
-    }
 
     private JLabel lblFolder, lblAction, lblParam1, lblParam2, lblExt;
     private JTextField txtFolder, txtParam1, txtParam2, txtExt;
@@ -72,9 +33,9 @@ public class ChangeFileNames extends AppFrame {
     private JComboBox<Choices> jcb;
     private JTextArea taStatus;
     private MyButton btnChange, btnBrowse, btnClear, btnUsage, btnExit;
-    private JPanel jpUp, jpDown, jpMid, jpSouth, jpNorth;
+    private JPanel jpSouth;
+    private JPanel jpNorth;
 
-    private static final int FILENAME_LEN = 30;
     private static int totalProcessedFiles = 0;
     private static int successfullyProcessedFiles = 0;
     private static int unprocessedFiles = 0;
@@ -82,7 +43,7 @@ public class ChangeFileNames extends AppFrame {
     private String title = "Change File Names";
 
     private ChangeFileNames() throws Exception {
-        MyLogger.createLogger("ChangeFileNames.log");
+        logger = MyLogger.createLogger("ChangeFileNames.log");
         setTitle(title);
         initComponents();
     }
@@ -106,7 +67,9 @@ public class ChangeFileNames extends AppFrame {
         txtParam2 = new JTextField(Utils.EMPTY, 5);
         txtExt = new JTextField("mp3", 5);
 
-        jcb = new JComboBox<>(Choices.values()); //dropdownOptions
+        Choices[] allChoices = Choices.values();
+        Arrays.sort(allChoices, new ChoicesComparator());
+        jcb = new JComboBox<>(allChoices); //drop down Options
         jcb.setSelectedIndex(6);
         jcSubFolder = new JCheckBox("Process sub-folders", false);
         jcSubFolder.setToolTipText("Process sub-folders if selected else only files of the folder");
@@ -143,11 +106,9 @@ public class ChangeFileNames extends AppFrame {
     private void drawUI() {
         getContentPane().setLayout(new BorderLayout());
 
-        //JPanel jp = new JPanel();
-        //jp.setLayout(new GridLayout(2, 1));
-        jpUp = new JPanel();
-        jpDown = new JPanel();
-        jpMid = new JPanel();
+        JPanel jpUp = new JPanel();
+        JPanel jpDown = new JPanel();
+        JPanel jpMid = new JPanel();
         jpSouth = new JPanel();
         jpNorth = new JPanel();
         jpNorth.setLayout(new GridLayout(3, 1));
@@ -193,47 +154,32 @@ public class ChangeFileNames extends AppFrame {
      */
     private void process(Arguments args) {
         final String log = "process: ";
-        String SRC_DIR = args.getSourceDir();
-        boolean includeSubDir = args.isProcessSubFolder();
-        String FILE_TYPE = args.getFileType();
-        String CHOICE = args.getChoice();
-        String EXTRA_PARAM1 = args.getParam1();
-        String EXTRA_PARAM2 = args.getParam2();
-        this.currentMethod = CHOICE + Utils.SP_DASH_SP;
 
         printMsg(log + "Starting process.");
 
-        printMsg(log + "Argument SRC_DIR [" + SRC_DIR + "]");
-        printMsg(log + "Argument INCLUDE_SUB_FOLDERS [" + includeSubDir + "]");
-        printMsg(log + "Argument OPTION [" + CHOICE + "]");
-        printMsg(log + "Argument FILE_TYPE [" + FILE_TYPE + "]");
-        printMsg(log + "Argument EXTRA_PARAM1 [" + EXTRA_PARAM1 + "]");
-        printMsg(log + "Argument EXTRA_PARAM2 [" + EXTRA_PARAM2 + "]");
+        if (args.getFileType().equals("ALL")) {
+            args.setFileType(null);
+        }
 
-        if (FILE_TYPE.equals("ALL"))
-            FILE_TYPE = null;
-
-        ChangeFileNamesFilter filter = new ChangeFileNamesFilter(FILE_TYPE);
-        File srcDir = new File(SRC_DIR);
+        ChangeFileNamesFilter filter = new ChangeFileNamesFilter(args.getFileType());
+        File srcDir = new File(args.getSourceDir());
         File[] fileList = srcDir.listFiles(filter);
         int len = (fileList != null) ? fileList.length : 0;
         printMsg(log + "Files obtained after applying filter are [" + len + "]");
 
         if (len != 0) {
             try {
-                Class<ChangeFileNames> thisClass = ChangeFileNames.class;
-                Class argumentsType[] = new Class[1];
-                argumentsType[0] = Arguments.class;
-                Method method = thisClass.getMethod(CHOICE, argumentsType);
+                BaseProcessor processor =
+                    (BaseProcessor) Class.forName(args.getChoice().getClazz())
+                        .getConstructor(logger.getClass())
+                        .newInstance(logger);
 
                 int cnt = 1;
                 for (File file : fileList) {
                     updateTitle(((cnt * 100) / len) + "%");
                     cnt++;
-                    printMsg("includeSubDir [" + includeSubDir + "]");
-                    printMsg("is directory [" + file.isDirectory() + "]");
-                    printMsg("is file [" + file.isFile() + "]");
-                    if (includeSubDir && file.isDirectory()) {
+                    printMsg("is directory [" + file.isDirectory() + "], is file [" + file.isFile() + "]");
+                    if (args.isProcessSubFolder() && file.isDirectory()) {
                         String[] tempArgs = null;
                         try {
                             printMsg("Collecting parameters for directory [" + file.getCanonicalPath() + "]");
@@ -247,30 +193,30 @@ public class ChangeFileNames extends AppFrame {
                         }
 
                         printMsg("Calling nested process.");
+                        //TODO: analyze
                         //process(tempArgs);
-                        if (jcProcessFolders.isSelected() && CHOICE.equals(Choices.CONVERT_TO_TITLE_CASE.getValue())) {
+                        if (jcProcessFolders.isSelected() && args.getChoice().equals(Choices.CONVERT_TO_TITLE_CASE)) {
                             String folderName = file.getName();
                             args.setFile(file);
-                            //getting folder name
 
-                            Object[] arguments = new Object[]{args};
-                            // invoking method
-                            String returnVal = (String) method.invoke(this, arguments);
+                            String returnVal = processor.execute(args);
                             printMsg(log + "modified file name obtained as [" + returnVal + "]");
 
                             if (Utils.hasValue(returnVal) && !returnVal.equals(folderName)) {
-                                //printMsg(log + "folder [" + folderName + "] will be renamed to fileName [" + returnVal + "]");
-                                //printMsg(log + "file.getParent () = " + file.getParent());
                                 boolean status = file.renameTo(new File(file.getParent() + "\\" + returnVal));
                                 printMsg(log + "The operation status for renaming [" + folderName + "] to [" + returnVal + "] " +
-                                        "for file.getParent() [" + file.getParent() + "] is [" + status + "]");
-                            } else
+                                    "for file.getParent() [" + file.getParent() + "] is [" + status + "]");
+                            } else {
                                 printMsg(log + "folder [" + folderName + "] does not require conversion.");
+                            }
                         }
                     } else {
 
-                        if (!file.isFile())
+                        if (!file.isFile()) {
                             continue;
+                        }
+
+                        args.setFile(file);
 
                         String actualFileName = file.getName();
                         //excluding extension
@@ -279,18 +225,18 @@ public class ChangeFileNames extends AppFrame {
                         actualFileName = actualFileName.substring(0, actualFileName.lastIndexOf("."));
                         printMsg(log + "actual file name is [" + actualFileName + "]");
 
-                        Object[] arguments = new Object[]{actualFileName, EXTRA_PARAM1, EXTRA_PARAM2, file};
-                        String returnVal = (String) method.invoke(this, arguments);
+//                        Object[] arguments = new Object[]{actualFileName, EXTRA_PARAM1, EXTRA_PARAM2, file};
+                        //String returnVal = (String) method.invoke(this, arguments);
+                        String returnVal = processor.execute(args);
                         printMsg(log + "modified file name obtained as [" + returnVal + "]");
 
-
                         if (Utils.hasValue(returnVal) && !returnVal.equals(actualFileName)) {
-                            printMsg(log + "file [" + actualFileName + "] renamed to fileName [" + returnVal + "]");
-                            printMsg("file.getParent () = " + file.getParent());
                             boolean status = file.renameTo(new File(file.getParent() + "\\" + returnVal + "." + extension));
-                            printMsg(log + "The operation status for [" + actualFileName + "] is [" + status + "]");
-                        } else
+                            printMsg(log + "The operation status for renaming [" + actualFileName + "] to [" + returnVal + "] " +
+                                "for file.getParent() [" + file.getParent() + "] is [" + status + "]");
+                        } else {
                             printMsg(log + "file [" + actualFileName + "] does not require conversion.");
+                        }
 
                         totalProcessedFiles++;
                         successfullyProcessedFiles++;
@@ -302,12 +248,13 @@ public class ChangeFileNames extends AppFrame {
                 throwExcp(log + "Error: " + e.getMessage());
                 e.printStackTrace();
             }
-        } else
+        } else {
             printMsg("No file to process.");
+        }
 
         printMsg("Processing COMPLETE. Processing summary.total processed files [" + totalProcessedFiles +
-                "], total processed successfully files [" + successfullyProcessedFiles +
-                "], total processed failed files [" + unprocessedFiles + "]");
+            "], total processed successfully files [" + successfullyProcessedFiles +
+            "], total processed failed files [" + unprocessedFiles + "]");
 
         resetProcessedFileCounters();
     }
@@ -329,214 +276,6 @@ public class ChangeFileNames extends AppFrame {
         logger.log(s);
     }
 
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     */
-    private String removeNumbersFromFileNames(Arguments args) {
-        StringBuilder sb = new StringBuilder(Utils.EMPTY);
-        for (int c = 0; c < args.getFile().getName().length(); c++) {
-            char ch = args.getFile().getName().charAt(c);
-            if (!Utils.isNumeric(ch))
-                sb.append(ch);
-        }
-        return sb.toString();
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     */
-    private String removeNumbersFromStart(Arguments args) {
-        boolean meetAlphabet = false;
-        StringBuilder sb = new StringBuilder(Utils.EMPTY);
-        for (int c = 0; c < args.getFile().getName().length(); c++) {
-            char ch = args.getFile().getName().charAt(c);
-            if (!Utils.isNumeric(ch) || meetAlphabet) {
-                meetAlphabet = true;
-                sb.append(ch);
-            }
-
-        }
-        return sb.toString();
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     */
-    public String removeNumbersFromEnd(Arguments args) {
-        String log = currentMethod;
-        printParameters(log, args);
-        //TODO: need to revisit
-        //fileName = new StringBuilder(fileName).reverse().toString();
-        StringBuilder sb = new StringBuilder(removeNumbersFromStart(args));
-
-        // TODO: correct it
-        //printMsg(log + "Finishing process with parameters: fileName [" + sb.reverse().toString() + "], extraPrm1 [" + extraPrm1 + "] and extraPrm2 [" + extraPrm2 + "]");
-        return sb.reverse().toString();
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     */
-    public String appendStringInStart(Arguments args) {
-        return args.getParam1() + args.getFile().getName();
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     */
-    public String appendStringInEnd(Arguments args) {
-        return args.getFile().getName() + args.getParam1();
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     * @throws Exception on error
-     */
-    public String removeCharsFromStart(Arguments args) throws Exception {
-        String log = currentMethod;
-        printParameters(log, args);
-        if (!Utils.hasValue(args.getParam1())) {
-            printMsg(log + "***Parameter explaining how many characters to remove is null.");
-            return Utils.EMPTY;
-        }
-        int numChars = 0;
-        String fileName = args.getFile().getName();
-        try {
-            numChars = Integer.parseInt(args.getParam1());
-            if (numChars >= fileName.length()) {
-                printMsg(log + "***Number of characters exceeding file name length.");
-            }
-        } catch (NumberFormatException e) {
-            throwExcp(log + "Error: " + e.getMessage());
-            e.printStackTrace();
-        }
-
-        StringBuilder sb = new StringBuilder(Utils.EMPTY);
-        for (int c = 0; c < fileName.length(); c++) {
-            char ch = fileName.charAt(c);
-            if (c >= numChars)
-                sb.append(ch);
-        }
-        printParameters(log, args, false);
-        return sb.toString();
-    }
-
-    private void printParameters(String log, Arguments args) {
-        printParameters(log, args, true);
-    }
-
-    private void printParameters(String log, Arguments args, boolean isInitMsg) {
-        printMsg(log + (isInitMsg ? "Initialising" : "Finishing") +" process with parameters: fileName [" + args.getFile().getName()
-                + "], extraPrm1 [" + args.getParam1() + "] and extraPrm2 [" + args.getParam2() + "]");
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     * @throws Exception on error
-     */
-    public String convertToTitleCase(Arguments args) throws Exception {
-        String log = currentMethod;
-        printParameters(log, args);
-        String fileName = args.getFile().getName();
-        if (Utils.hasValue(fileName)) {
-            fileName = fileName.toLowerCase();
-            for (int i = 0; i < fileName.length(); i++) {
-                char ch = fileName.charAt(i);
-                //if (ch == '-' || ch == ' ' || ch == '_')
-                if (ch == ' ' || ch == '_') {
-                    if (i != fileName.length() - 1) {
-                        fileName = fileName.substring(0, i) + Utils.SPACE + Character.toString(fileName.charAt(i + 1)).toUpperCase() + fileName.substring(i + 2);
-                    }
-                    //} else if (ch == '(' || ch == '[')
-                } else if (ch == '(') {
-                    if (i != fileName.length() - 1) {
-                        fileName = fileName.substring(0, i + 1) + Character.toString(fileName.charAt(i + 1)).toUpperCase() + fileName.substring(i + 2);
-                    }
-                }
-            }
-            fileName = fileName.replaceAll("_", Utils.EMPTY);
-        }
-        fileName = Character.toString(fileName.charAt(0)).toUpperCase() + fileName.substring(1);
-
-        while (fileName.contains(Utils.DOUBLE_SPACE))
-            fileName = fileName.replaceAll(Utils.DOUBLE_SPACE, Utils.SPACE);
-
-        if (jcAppendFolder.isSelected()) {
-            String folderName = getFolderName(args.getFile());
-            // TODO: revisit
-            // removing any numbers if present in folder name
-            //folderName = removeNumbersFromFileNames(folderName.trim(), Utils.EMPTY, Utils.EMPTY, null);
-//            folderName = removeSpacesFromBothSides(folderName.trim(), Utils.EMPTY, Utils.EMPTY, null);
-            if (Utils.hasValue(folderName) && !fileName.toLowerCase().startsWith(folderName.toLowerCase() + Utils.SP_DASH_SP)) {
-                if (fileName.toLowerCase().startsWith(folderName.toLowerCase()))
-                    fileName = fileName.substring(0, folderName.length()) + Utils.SP_DASH_SP + fileName.substring(folderName.length());
-                else
-                    fileName = folderName + Utils.SP_DASH_SP + fileName;
-
-                fileName = fileName.replaceAll(Utils.DOUBLE_SPACE, Utils.SPACE);
-            }
-        } else {
-            String folderName = getFolderName(args.getFile());
-            // TODO: revisit
-            // removing any numbers if present in folder name
-            //folderName = removeNumbersFromFileNames(folderName.trim(), Utils.EMPTY, Utils.EMPTY, null);
-//            folderName = removeSpacesFromBothSides(folderName.trim(), Utils.EMPTY, Utils.EMPTY, null);
-            if (Utils.hasValue(folderName) && fileName.toLowerCase().startsWith(folderName.toLowerCase())) {
-                fileName = fileName.substring(folderName.length());
-            }
-            if (Utils.hasValue(folderName) && fileName.toLowerCase().startsWith(Utils.SP_DASH_SP)) {
-                fileName = fileName.substring(Utils.SP_DASH_SP.length());
-            }
-
-            // trying same thing with non-modified folder name
-            folderName = getFolderName(args.getFile(), false);
-            // TODO: revisit
-            // removing any numbers if present in folder name
-            //folderName = removeNumbersFromFileNames(folderName.trim(), Utils.EMPTY, Utils.EMPTY, null);
-            //folderName = removeSpacesFromBothSides(folderName.trim(), Utils.EMPTY, Utils.EMPTY, null);
-            if (Utils.hasValue(folderName) && fileName.toLowerCase().startsWith(folderName.toLowerCase())) {
-                fileName = fileName.substring(folderName.length());
-            }
-            if (Utils.hasValue(folderName) && fileName.toLowerCase().startsWith(Utils.SP_DASH_SP)) {
-                fileName = fileName.substring(Utils.SP_DASH_SP.length());
-            }
-        }
-
-        if (args.getFile().isFile())
-            while (fileName.length() > FILENAME_LEN) {
-                fileName = fileName.substring(0, FILENAME_LEN);
-                if (fileName.contains(Utils.SPACE)) {
-                    fileName = fileName.substring(0, fileName.lastIndexOf(Utils.SPACE));
-                }
-            }
-
-//        fileName = removeSpacesFromBothSides(fileName, Utils.EMPTY, Utils.EMPTY, null);
-        fileName = removeSpacesFromBothSides(args);
-        printParameters(log, args, false);
-        return fileName;
-    }
-
     private String getFolderName(File file) throws Exception {
         return getFolderName(file, true);
     }
@@ -546,10 +285,11 @@ public class ChangeFileNames extends AppFrame {
         String folderName = Utils.EMPTY;
         if (file.isFile()) {
             folderName = file.getParent();
-            if (folderName.contains("\\"))
+            if (folderName.contains("\\")) {
                 folderName = folderName.substring(folderName.lastIndexOf("\\") + 1);
-            else if (folderName.contains("/"))
+            } else if (folderName.contains("/")) {
                 folderName = folderName.substring(folderName.lastIndexOf("/") + 1);
+            }
 
             // excluding chars other than Aa-Zz
             String temp = Utils.EMPTY;
@@ -557,16 +297,21 @@ public class ChangeFileNames extends AppFrame {
                 boolean include = Character.isLetter(folderName.charAt(i)) || folderName.charAt(i) == Utils.SPACE.charAt(0);
                 temp += include ? folderName.charAt(i) + Utils.EMPTY : Utils.EMPTY;
             }
-            if (Utils.hasValue(temp)) folderName = temp;
+            if (Utils.hasValue(temp)) {
+                folderName = temp;
+            }
 
             // if length > 17 chars then take first char of spacing folder name
             if (modifyLongName && folderName.length() > 17) {
                 temp = Utils.EMPTY + ((Character.isLetter(folderName.charAt(0))) ? folderName.charAt(0) + Utils.EMPTY : Utils.EMPTY);
                 for (int i = 0; i < folderName.length(); i++) {
-                    if (folderName.charAt(i) == ' ')
+                    if (folderName.charAt(i) == ' ') {
                         temp += ((Character.isLetter(folderName.charAt(i + 1))) ? folderName.charAt(i + 1) + Utils.EMPTY : Utils.EMPTY);
+                    }
                 }
-                if (Utils.hasValue(temp)) folderName = temp;
+                if (Utils.hasValue(temp)) {
+                    folderName = temp;
+                }
             }
         }
         folderName = folderName.trim();
@@ -588,238 +333,6 @@ public class ChangeFileNames extends AppFrame {
     }
 
     /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     * @throws Exception on error
-     */
-    public String removeCharsFromEnd(Arguments args) throws Exception {
-        String log = currentMethod;
-        printParameters(log, args);
-        if (!Utils.hasValue(args.getParam1())) {
-            printMsg(log + "***Parameter explaining how many characters to remove is null.");
-            return Utils.EMPTY;
-        }
-        // TODO: revisit
-        //fileName = new StringBuilder(fileName).reverse().toString();
-        StringBuilder sb = new StringBuilder(removeCharsFromStart(args));
-        String returnFileName = sb.reverse().toString();
-
-        printParameters(log, args, false);
-        return returnFileName;
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     * @throws Exception on error
-     */
-    private String removeSpacesFromStart(Arguments args) throws Exception {
-        String log = currentMethod;
-        printParameters(log, args);
-        boolean meetAlphabet = false;
-        StringBuilder sb = new StringBuilder(Utils.EMPTY);
-        for (int c = 0; c < args.getFile().getName().length(); c++) {
-            char ch = args.getFile().getName().charAt(c);
-            if (ch != ' ' || meetAlphabet) {
-                meetAlphabet = true;
-                sb.append(ch);
-            }
-        }
-        printParameters(log, args, false);
-        return sb.toString();
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     * @throws Exception on error
-     */
-    private String removeSpacesFromEnd(Arguments args) throws Exception {
-        String log = currentMethod;
-        printParameters(log, args);
-        //TODO: revisit
-        //fileName = new StringBuilder(fileName).reverse().toString();
-        StringBuilder sb = new StringBuilder(removeSpacesFromStart(args));
-        String returnFileName = sb.reverse().toString();
-
-        printParameters(log, args, false);
-        return returnFileName;
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     * @throws Exception on error
-     */
-    private String removeSpacesFromBothSides(Arguments args) {
-        // TODO: revisit
-        /*fileName = removeSpacesFromStart(args);
-        fileName = removeSpacesFromEnd(args);
-        return fileName;*/
-        return null;
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     * @throws Exception on error
-     */
-    private String removeMatchFromStart(Arguments args) throws Exception {
-        String log = currentMethod;
-        /*printMsg(log + "Initialising process with parameters: fileName [" + fileName + "], extraPrm1 [" + extraPrm1 + "] and extraPrm2 [" + extraPrm2 + "]");
-        if (!Utils.hasValue(extraPrm1)) {
-            printMsg(log + "***Parameter explaining matching string is null.");
-            return Utils.EMPTY;
-        }
-
-        if (fileName.indexOf(extraPrm1) == 0)
-            fileName = fileName.substring(extraPrm1.length());
-
-        printMsg(log + "Finishing process with parameters: fileName [" + fileName + "], extraPrm1 [" + extraPrm1 + "] and extraPrm2 [" + extraPrm2 + "]");
-        return fileName;*/
-        return null;
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     * @throws Exception on error
-     */
-    public String removeMatchFromEnd(Arguments args) throws Exception {
-        String log = currentMethod;
-        printParameters(log, args);
-        if (!Utils.hasValue(args.getParam1())) {
-            printMsg(log + "***Parameter explaining matching string is null.");
-            return Utils.EMPTY;
-        }
-
-        // TODO: revisit
-        //fileName = new StringBuilder(fileName).reverse().toString();
-        String revPrm1 = new StringBuilder(args.getParam1()).reverse().toString();
-        String revPrm2 = new StringBuilder(args.getParam1()).reverse().toString();
-        // TODO: revisit
-        StringBuilder sb = new StringBuilder(removeMatchFromStart(args));
-        String returnFileName = sb.reverse().toString();
-
-        printParameters(log, args, false);
-        return returnFileName;
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     * @throws Exception on error
-     */
-    public String removeMatch(String fileName, String extraPrm1, String extraPrm2, File file) throws Exception {
-        String log = currentMethod;
-        printMsg(log + "Initialising process with parameters: fileName [" + fileName + "], extraPrm1 [" + extraPrm1 + "] and extraPrm2 [" + extraPrm2 + "]");
-        if (!Utils.hasValue(extraPrm1)) {
-            printMsg(log + "***Parameter explaining matching string is null.");
-            return Utils.EMPTY;
-        }
-
-        fileName = fileName.replaceAll(extraPrm1, Utils.EMPTY);
-        printMsg(log + "Finishing process with parameters: fileName [" + fileName + "], extraPrm1 [" + extraPrm1 + "] and extraPrm2 [" + extraPrm2 + "]");
-        return fileName;
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     * @throws Exception on error
-     */
-    private String replaceMatchFromStart(String fileName, String extraPrm1, String extraPrm2, File file) throws Exception {
-        String log = currentMethod;
-        printMsg(log + "Initialising process with parameters: fileName [" + fileName + "], extraPrm1 [" + extraPrm1 + "] and extraPrm2 [" + extraPrm2 + "]");
-        if (!Utils.hasValue(extraPrm1)) {
-            printMsg(log + "***Parameter to search is null.");
-            return Utils.EMPTY;
-        }
-        if (!Utils.hasValue(extraPrm2)) {
-            printMsg(log + "***Parameter to replace is null.");
-            return Utils.EMPTY;
-        }
-
-        if (fileName.indexOf(extraPrm1) == 0)
-            fileName = fileName.replaceFirst(extraPrm1, extraPrm2);
-
-        printMsg(log + "Finishing process with parameters: fileName [" + fileName + "], extraPrm1 [" + extraPrm1 + "] and extraPrm2 [" + extraPrm2 + "]");
-        return fileName;
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param args Object of type Arguments
-     * @return String modified file name
-     * @throws Exception on error
-     */
-    public String replaceMatchFromEnd(String fileName, String extraPrm1, String extraPrm2, File file) throws Exception {
-        String log = currentMethod;
-        printMsg(log + "Initialising process with parameters: fileName [" + fileName + "], extraPrm1 [" + extraPrm1 + "] and extraPrm2 [" + extraPrm2 + "]");
-        if (!Utils.hasValue(extraPrm1)) {
-            printMsg(log + "***Parameter to search is null.");
-            return Utils.EMPTY;
-        }
-        if (!Utils.hasValue(extraPrm2)) {
-            printMsg(log + "***Parameter to replace is null.");
-            return Utils.EMPTY;
-        }
-
-        fileName = new StringBuilder(fileName).reverse().toString();
-        String revPrm1 = new StringBuilder(extraPrm1).reverse().toString();
-        String revPrm2 = new StringBuilder(extraPrm2).reverse().toString();
-        StringBuilder sb = new StringBuilder(replaceMatchFromStart(fileName, revPrm1, revPrm2, file));
-        String returnFileName = sb.reverse().toString();
-
-        printMsg(log + "Finishing process with parameters: fileName [" + returnFileName + "], extraPrm1 [" + extraPrm1 + "] and extraPrm2 [" + extraPrm2 + "]");
-        return returnFileName;
-    }
-
-    /**
-     * Remove all occurrence of any digit in file name
-     *
-     * @param fileName  source file name to modify
-     * @param extraPrm1 extra parameter 1 to be used by other methods (due to use of reflection)
-     * @param extraPrm2 extra parameter 2 to be used by other methods (due to use of reflection)
-     * @param file      object of java.io.File
-     * @return String modified file name
-     * @throws Exception on error
-     */
-    public String replaceMatch(String fileName, String extraPrm1, String extraPrm2, File file) throws Exception {
-        String log = currentMethod;
-        printMsg(log + "Initialising process with parameters: fileName [" + fileName + "], extraPrm1 [" + extraPrm1 + "] and extraPrm2 [" + extraPrm2 + "]");
-        if (!Utils.hasValue(extraPrm1)) {
-            printMsg(log + "***Parameter to search is null.");
-            return Utils.EMPTY;
-        }
-        if (!Utils.hasValue(extraPrm2)) {
-            printMsg(log + "***Parameter to replace is null.");
-            return Utils.EMPTY;
-        }
-
-        fileName = fileName.replaceAll(extraPrm1, extraPrm2);
-        printMsg(log + "Finishing process with parameters: fileName [" + fileName + "], extraPrm1 [" + extraPrm1 + "] and extraPrm2 [" + extraPrm2 + "]");
-        return fileName;
-    }
-
-    /**
      * Validate all the arguments.
      *
      * @param args arguments
@@ -834,14 +347,11 @@ public class ChangeFileNames extends AppFrame {
      * checks whether used the available choice of used
      * some thing else.
      *
-     * @param arg the option
+     * @param choice the option
      * @return boolean status of operation
      */
-    private boolean validateChoice(String arg) {
-        Choices choices = ((Choices) jcb.getSelectedItem());
-        boolean validVal = choices.getValue().equals(arg);
-        printMsg("validateChoice: Returning result [" + validVal + "] for argument [" + choices.getLabel() + "]");
-        return validVal;
+    private boolean validateChoice(Choices choice) {
+        return choice != null;
     }
 
     /**
@@ -853,12 +363,15 @@ public class ChangeFileNames extends AppFrame {
     private boolean validateArgs(Arguments args) {
         final String log = "validateArgs: ";
 
-        if (!Utils.hasValue(args.getSourceDir()))
+        if (!Utils.hasValue(args.getSourceDir())) {
             return false;
-        if (!Utils.hasValue(args.getChoice()))
+        }
+        if (args.getChoice() == null) {
             return false;
-        if (!Utils.hasValue(args.getFileType()))
+        }
+        if (!Utils.hasValue(args.getFileType())) {
             return false;
+        }
 
         printMsg(log + "Successfully validate arguments");
         return true;
@@ -888,35 +401,35 @@ public class ChangeFileNames extends AppFrame {
      */
     private void printUsage() {
         String usage = "javac ChangeFileNames <srcDir> <include-sub-folders> <file-filter-extension> <option> [<extra-param>]"
-                + "\nwhere"
-                + "\n <srcDir> - source directory whose filenames are to be processed."
-                + "\n <include-sub-folders> - TRUE to include and FALSE to exclude."
-                + "\n <file-filter-extension> - the specific files (like .html or .class etc) to be processed. \"ALL\" for all files."
-                + "\n <option> - the operation to be performed on files, also <extra-param> is optional and required by some of the operations of <option>. The valid options are:"
-                + "\n     1.  REMOVE_NUMBERS_FROM_FILE_NAMES"
-                + "\n     2.  REMOVE_NUMBERS_FROM_START"
-                + "\n     3.  REMOVE_NUMBERS_FROM_END"
-                + "\n     4.  APPEND_STRING_IN_START <string>"
-                + "\n     5.  APPEND_STRING_IN_END <string>"
-                + "\n     6.  REMOVE_CHARS_FROM_START <number-of-chars>"
-                + "\n     7.  REMOVE_CHARS_FROM_END <number-of-chars>"
-                + "\n     8.  REMOVE_SPACES_FROM_START"
-                + "\n     9.  REMOVE_SPACES_FROM_END"
-                + "\n     10. REMOVE_SPACES_FROM_BOTH_SIDES"
-                + "\n     11. REMOVE_MATCH_FROM_START <string>"
-                + "\n     12. REMOVE_MATCH_FROM_END <string>"
-                + "\n     13. REMOVE_MATCH <string>"
-                + "\n     14. REPLACE_MATCH_FROM_START <search-string> <replacement-string>"
-                + "\n     15. REPLACE_MATCH_FROM_END <search-string> <replacement-string>"
-                + "\n     16. REPLACE_MATCH <search-string> <replacement-string>"
-                + "\n     17. CONVERT_TO_TITLE_CASE"
-                + "\n     18. UPDATE_MP3_TAGS"
-                + "\n\n example 1. javac ChangeFileNames c:/test FALSE mp3 REMOVE_NUMBERS_FROM_START"
-                + "\n example 2. javac ChangeFileNames c:/test FALSE ALL REMOVE_NUMBERS_FROM_FILE_NAMES"
-                + "\n example 3. javac ChangeFileNames c:/test FALSE java APPEND_STRING_IN_START prefix"
-                + "\n example 4. javac ChangeFileNames c:/test FALSE class REMOVE_CHARS_FROM_END 4"
-                + "\n example 5. javac ChangeFileNames c:/test FALSE class REMOVE_SPACES_FROM_END"
-                + "\n example 6. javac ChangeFileNames c:/test FALSE class REPLACE_MATCH abc xyz";
+            + "\nwhere"
+            + "\n <srcDir> - source directory whose filenames are to be processed."
+            + "\n <include-sub-folders> - TRUE to include and FALSE to exclude."
+            + "\n <file-filter-extension> - the specific files (like .html or .class etc) to be processed. \"ALL\" for all files."
+            + "\n <option> - the operation to be performed on files, also <extra-param> is optional and required by some of the operations of <option>. The valid options are:"
+            + "\n     1.  REMOVE_NUMBERS_FROM_FILE_NAMES"
+            + "\n     2.  REMOVE_NUMBERS_FROM_START"
+            + "\n     3.  REMOVE_NUMBERS_FROM_END"
+            + "\n     4.  APPEND_STRING_IN_START <string>"
+            + "\n     5.  APPEND_STRING_IN_END <string>"
+            + "\n     6.  REMOVE_CHARS_FROM_START <number-of-chars>"
+            + "\n     7.  REMOVE_CHARS_FROM_END <number-of-chars>"
+            + "\n     8.  REMOVE_SPACES_FROM_START"
+            + "\n     9.  REMOVE_SPACES_FROM_END"
+            + "\n     10. REMOVE_SPACES_FROM_BOTH_SIDES"
+            + "\n     11. REMOVE_MATCH_FROM_START <string>"
+            + "\n     12. REMOVE_MATCH_FROM_END <string>"
+            + "\n     13. REMOVE_MATCH <string>"
+            + "\n     14. REPLACE_MATCH_FROM_START <search-string> <replacement-string>"
+            + "\n     15. REPLACE_MATCH_FROM_END <search-string> <replacement-string>"
+            + "\n     16. REPLACE_MATCH <search-string> <replacement-string>"
+            + "\n     17. CONVERT_TO_TITLE_CASE"
+            + "\n     18. UPDATE_MP3_TAGS"
+            + "\n\n example 1. javac ChangeFileNames c:/test FALSE mp3 REMOVE_NUMBERS_FROM_START"
+            + "\n example 2. javac ChangeFileNames c:/test FALSE ALL REMOVE_NUMBERS_FROM_FILE_NAMES"
+            + "\n example 3. javac ChangeFileNames c:/test FALSE java APPEND_STRING_IN_START prefix"
+            + "\n example 4. javac ChangeFileNames c:/test FALSE class REMOVE_CHARS_FROM_END 4"
+            + "\n example 5. javac ChangeFileNames c:/test FALSE class REMOVE_SPACES_FROM_END"
+            + "\n example 6. javac ChangeFileNames c:/test FALSE class REPLACE_MATCH abc xyz";
 
         taStatus.setText("Usage = " + usage);
     }
@@ -955,10 +468,12 @@ public class ChangeFileNames extends AppFrame {
         public boolean accept(File file) {
             boolean status = false;
             final String log = "accept: ";
-            if (!Utils.hasValue(filter))
+            if (!Utils.hasValue(filter)) {
                 status = true;
-            if ((!status && file.getName().endsWith(filter)) || file.isDirectory())
+            }
+            if ((!status && file.getName().endsWith(filter)) || file.isDirectory()) {
                 status = true;
+            }
 
             printMsg(log + "Applying filter [" + filter + "] for file [" + file.getName() + "] and status result is [" + status + "]");
             return status;
@@ -981,7 +496,7 @@ public class ChangeFileNames extends AppFrame {
 
         arguments.setSourceDir(txtFolder.getText());
         arguments.setFileType(txtExt.getText());
-        arguments.setChoice(((Choices) (jcb.getSelectedItem())).getValue());
+        arguments.setChoice(((Choices) (jcb.getSelectedItem())));
         arguments.setParam1(Utils.hasValue(txtParam1.getText()) ? txtParam1.getText() : Utils.SPACE);
         arguments.setParam2(Utils.hasValue(txtParam2.getText()) ? txtParam2.getText() : Utils.SPACE);
 
@@ -999,15 +514,9 @@ public class ChangeFileNames extends AppFrame {
      * This method provides support to execute it from command line.
      * As of thought removing this support from command line on 16-Oct-2017
      *
-     * @param args
+     * @param args of type {@link Arguments}
      * @throws Exception
      */
-    /*private void startProcessing(String[] args) throws Exception {
-        if (args != null && validateAllArgs(args))
-            process(args);
-        else
-            printMsg("Unable to start process.");
-    }*/
     private void startProcessing(Arguments args) throws Exception {
         if (args != null && validateAllArgs(args)) {
             process(args);
@@ -1030,8 +539,9 @@ public class ChangeFileNames extends AppFrame {
                     jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
                     jfc.showDialog(this, "Select");
                     try {
-                        if (jfc.getSelectedFile() != null)
+                        if (jfc.getSelectedFile() != null) {
                             txtFolder.setText(jfc.getSelectedFile().getCanonicalPath());
+                        }
                     } catch (Exception e1) {
                         throwExcp(log + "Error: " + e1.getMessage());
                         e1.printStackTrace();
@@ -1070,5 +580,60 @@ public class ChangeFileNames extends AppFrame {
 
     public void updateTitle(String addlInfo) {
         setTitle(Utils.hasValue(addlInfo) ? title + Utils.SP_DASH_SP + addlInfo : title);
+    }
+}
+
+enum Choices {
+    REMOVE_NUMBERS_FROM_FILE_NAMES("Remove numbers from file names", "removeNumbersFromFileNames", "RemoveNumbersFromFileNames"),
+    REMOVE_NUMBERS_FROM_START("Remove numbers from start", "removeNumbersFromStart", "RemoveNumbersFromStart"),
+    REMOVE_NUMBERS_FROM_END("Remove numbers from end", "removeNumbersFromEnd", "RemoveNumbersFromEnd"),
+    APPEND_STRING_IN_START("Append string in start", "appendStringInStart", "AppendStringInStart"),
+    APPEND_STRING_IN_END("Append string in end", "appendStringInEnd", "AppendStringInEnd"),
+    REMOVE_CHARS_FROM_START("Remove chars from start", "removeCharsFromStart", "RemoveCharsFromStart"),
+    REMOVE_CHARS_FROM_END("Remove chars from end", "removeCharsFromEnd", "RemoveCharsFromEnd"),
+    REMOVE_SPACES_FROM_START("Remove spaces from start", "removeSpacesFromStart", "RemoveSpacesFromStart"),
+    REMOVE_SPACES_FROM_END("Remove spaces from end", "removeSpacesFromEnd", "RemoveSpacesFromEnd"),
+    REMOVE_SPACES_FROM_BOTH_SIDES("Remove spaces from both sides", "removeSpacesFromBothSides", "RemoveSpacesFromBothSides"),
+    REMOVE_MATCH_FROM_START("Remove match from start", "removeMatchFromStart", "RemoveMatchFromStart"),
+    REMOVE_MATCH_FROM_END("Remove match from end", "removeMatchFromEnd", "RemoveMatchFromEnd"),
+    REMOVE_MATCH("Remove match", "removeMatch", "RemoveMatch"),
+    REPLACE_MATCH_FROM_START("Replace match from start", "replaceMatchFromStart", "ReplaceMatchFromStart"),
+    REPLACE_MATCH_FROM_END("Replace match from end", "replaceMatchFromEnd", "ReplaceMatchFromEnd"),
+    REPLACE_MATCH("Replace match", "replaceMatch", "ReplaceMatch"),
+    CONVERT_TO_TITLE_CASE("Convert to title case", "convertToTitleCase", "ConvertToTitleCase");
+
+    private String label, value, clazz;
+
+    Choices(String label, String value, String clazz) {
+        this.label = label;
+        this.value = value;
+        this.clazz = clazz;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    /**
+     * Getter for property 'clazz'.
+     *
+     * @return Value for property 'clazz'.
+     */
+    public String getClazz() {
+        return clazz;
+    }
+
+    public String toString() {
+        return getLabel();
+    }
+}
+
+class ChoicesComparator implements java.util.Comparator<Choices> {
+    public int compare(Choices left, Choices right) {
+        return left.getLabel().compareTo(right.getLabel());
     }
 }
