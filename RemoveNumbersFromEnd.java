@@ -11,13 +11,20 @@ public class RemoveNumbersFromEnd extends BaseProcessor {
      */
     @Override
     protected String process(Arguments args) {
+        boolean meetAlphabet = false;
         StringBuilder sb = new StringBuilder(Utils.EMPTY);
         for (int c = 0; c < args.getFile().getName().length(); c++) {
             char ch = args.getFile().getName().charAt(c);
-            if (!Utils.isNumeric(ch))
+            if (!Utils.isNumeric(ch) || meetAlphabet) {
+                meetAlphabet = true;
                 sb.append(ch);
+            }
+
         }
         return sb.toString();
+
+        // TODO: check it .... code right now is from start .... no change
+        //return sb.reverse().toString();
     }
 
 }

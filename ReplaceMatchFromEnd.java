@@ -11,13 +11,23 @@ public class ReplaceMatchFromEnd extends BaseProcessor {
      */
     @Override
     protected String process(Arguments args) {
-        StringBuilder sb = new StringBuilder(Utils.EMPTY);
-        for (int c = 0; c < args.getFile().getName().length(); c++) {
-            char ch = args.getFile().getName().charAt(c);
-            if (!Utils.isNumeric(ch))
-                sb.append(ch);
+        /*if (!Utils.hasValue(extraPrm1)) {
+            printMsg(log + "***Parameter to search is null.");
+            return Utils.EMPTY;
         }
-        return sb.toString();
+        if (!Utils.hasValue(extraPrm2)) {
+            printMsg(log + "***Parameter to replace is null.");
+            return Utils.EMPTY;
+        }
+
+        fileName = new StringBuilder(fileName).reverse().toString();
+        String revPrm1 = new StringBuilder(extraPrm1).reverse().toString();
+        String revPrm2 = new StringBuilder(extraPrm2).reverse().toString();
+        StringBuilder sb = new StringBuilder(replaceMatchFromStart(fileName, revPrm1, revPrm2, file));
+        String returnFileName = sb.reverse().toString();
+
+        return returnFileName;*/
+        return null;
     }
 
 }

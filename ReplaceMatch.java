@@ -11,13 +11,18 @@ public class ReplaceMatch extends BaseProcessor {
      */
     @Override
     protected String process(Arguments args) {
-        StringBuilder sb = new StringBuilder(Utils.EMPTY);
-        for (int c = 0; c < args.getFile().getName().length(); c++) {
-            char ch = args.getFile().getName().charAt(c);
-            if (!Utils.isNumeric(ch))
-                sb.append(ch);
+        /*if (!Utils.hasValue(extraPrm1)) {
+            printMsg(log + "***Parameter to search is null.");
+            return Utils.EMPTY;
         }
-        return sb.toString();
+        if (!Utils.hasValue(extraPrm2)) {
+            printMsg(log + "***Parameter to replace is null.");
+            return Utils.EMPTY;
+        }
+
+        fileName = fileName.replaceAll(extraPrm1, extraPrm2);
+        return fileName;*/
+        return null;
     }
 
 }

@@ -11,13 +11,21 @@ public class RemoveMatchFromEnd extends BaseProcessor {
      */
     @Override
     protected String process(Arguments args) {
-        StringBuilder sb = new StringBuilder(Utils.EMPTY);
-        for (int c = 0; c < args.getFile().getName().length(); c++) {
-            char ch = args.getFile().getName().charAt(c);
-            if (!Utils.isNumeric(ch))
-                sb.append(ch);
+        if (!Utils.hasValue(args.getParam1())) {
+//            printMsg(log + "***Parameter explaining matching string is null.");
+            return Utils.EMPTY;
         }
-        return sb.toString();
+
+        // TODO: revisit
+        //fileName = new StringBuilder(fileName).reverse().toString();
+        String revPrm1 = new StringBuilder(args.getParam1()).reverse().toString();
+        String revPrm2 = new StringBuilder(args.getParam1()).reverse().toString();
+        // TODO: revisit
+//        StringBuilder sb = new StringBuilder(removeMatchFromStart(args));
+//        String returnFileName = sb.reverse().toString();
+
+//        return returnFileName;
+        return null;
     }
 
 }

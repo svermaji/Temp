@@ -11,13 +11,20 @@ public class ReplaceMatchFromStart extends BaseProcessor {
      */
     @Override
     protected String process(Arguments args) {
-        StringBuilder sb = new StringBuilder(Utils.EMPTY);
-        for (int c = 0; c < args.getFile().getName().length(); c++) {
-            char ch = args.getFile().getName().charAt(c);
-            if (!Utils.isNumeric(ch))
-                sb.append(ch);
+        /*if (!Utils.hasValue(extraPrm1)) {
+            printMsg(log + "***Parameter to search is null.");
+            return Utils.EMPTY;
         }
-        return sb.toString();
+        if (!Utils.hasValue(extraPrm2)) {
+            printMsg(log + "***Parameter to replace is null.");
+            return Utils.EMPTY;
+        }
+
+        if (fileName.indexOf(extraPrm1) == 0)
+            fileName = fileName.replaceFirst(extraPrm1, extraPrm2);
+
+        return fileName;*/
+        return null;
     }
 
 }

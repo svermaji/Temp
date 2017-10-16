@@ -11,13 +11,7 @@ public class AppendStringInStart extends BaseProcessor {
      */
     @Override
     protected String process(Arguments args) {
-        StringBuilder sb = new StringBuilder(Utils.EMPTY);
-        for (int c = 0; c < args.getFile().getName().length(); c++) {
-            char ch = args.getFile().getName().charAt(c);
-            if (!Utils.isNumeric(ch))
-                sb.append(ch);
-        }
-        return sb.toString();
+        return args.getParam1() + args.getFile().getName();
     }
 
 }

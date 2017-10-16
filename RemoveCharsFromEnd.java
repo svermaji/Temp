@@ -11,13 +11,17 @@ public class RemoveCharsFromEnd extends BaseProcessor {
      */
     @Override
     protected String process(Arguments args) {
-        StringBuilder sb = new StringBuilder(Utils.EMPTY);
-        for (int c = 0; c < args.getFile().getName().length(); c++) {
-            char ch = args.getFile().getName().charAt(c);
-            if (!Utils.isNumeric(ch))
-                sb.append(ch);
+        /*if (!Utils.hasValue(args.getParam1())) {
+            printMsg(log + "***Parameter explaining how many characters to remove is null.");
+            return Utils.EMPTY;
         }
-        return sb.toString();
+        // TODO: revisit
+        //fileName = new StringBuilder(fileName).reverse().toString();
+        StringBuilder sb = new StringBuilder(removeCharsFromStart(args));
+        String returnFileName = sb.reverse().toString();
+
+        return returnFileName;*/
+        return null;
     }
 
 }
