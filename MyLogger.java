@@ -27,7 +27,7 @@ public class MyLogger {
     private MyLogger() {
     }
 
-    public void dispose() {
+    private void dispose() {
         try {
             logWriter.close();
         } catch (IOException e) {
@@ -47,7 +47,7 @@ public class MyLogger {
      *
      * @param message - debug statement
      */
-    public void log(String message) {
+    void log(String message) {
         try {
             if (logWriter != null) {
                 synchronized (logWriter) {

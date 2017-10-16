@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-class AppFrame extends JFrame {
+public class AppFrame extends JFrame {
 
     AppFrame() {
         Font baseFont = new Font("Dialog", Font.PLAIN, 12);

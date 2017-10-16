@@ -1,7 +1,16 @@
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+
 /**
  * Created by svg on 11-Oct-2017
  */
 public class Utils {
+
+    public static final String EMPTY = "";
+    public static final String SPACE = " ";
+    public static final String DOUBLE_SPACE = SPACE+SPACE;
+    public static final String DASH = "-";
+    public static final String SP_DASH_SP = SPACE + DASH + SPACE;
 
     // Set of values that imply a true value.
     private static final String[] trueValues = {"Y", "YES", "TRUE", "T"};
@@ -18,6 +27,10 @@ public class Utils {
     public static boolean hasValue ( String item )
     {
         return( (item != null) && (item.length() > 0) );
+    }
+
+    public static Path createPath (String path) {
+        return FileSystems.getDefault().getPath(path);
     }
 
     /**
