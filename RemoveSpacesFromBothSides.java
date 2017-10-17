@@ -3,6 +3,10 @@
  */
 public class RemoveSpacesFromBothSides extends BaseProcessor {
 
+    public RemoveSpacesFromBothSides(MyLogger logger) {
+        super(logger);
+    }
+
     /**
      * Remove all occurrence of any digit in file name
      *
@@ -11,11 +15,7 @@ public class RemoveSpacesFromBothSides extends BaseProcessor {
      */
     @Override
     protected String process(Arguments args) {
-        // TODO: revisit
-        /*fileName = removeSpacesFromStart(args);
-        fileName = removeSpacesFromEnd(args);
-        return fileName;*/
-        return null;
+        return args.getFileNameNoExtn().trim();
     }
 
 }

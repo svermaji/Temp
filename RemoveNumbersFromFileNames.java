@@ -3,6 +3,10 @@
  */
 public class RemoveNumbersFromFileNames extends BaseProcessor {
 
+    public RemoveNumbersFromFileNames(MyLogger logger) {
+        super(logger);
+    }
+
     /**
      * Remove all occurrence of any digit in file name
      *

@@ -3,6 +3,10 @@
  */
 public class RemoveCharsFromEnd extends BaseProcessor {
 
+    public RemoveCharsFromEnd(MyLogger logger) {
+        super(logger);
+    }
+
     /**
      * Remove all occurrence of any digit in file name
      *
@@ -11,17 +15,24 @@ public class RemoveCharsFromEnd extends BaseProcessor {
      */
     @Override
     protected String process(Arguments args) {
-        /*if (!Utils.hasValue(args.getParam1())) {
-            printMsg(log + "***Parameter explaining how many characters to remove is null.");
+        if (!Utils.hasValue(args.getParam1())) {
+            log("***Parameter explaining how many characters to remove is null.");
             return Utils.EMPTY;
         }
-        // TODO: revisit
-        //fileName = new StringBuilder(fileName).reverse().toString();
-        StringBuilder sb = new StringBuilder(removeCharsFromStart(args));
-        String returnFileName = sb.reverse().toString();
+        int numChars;
+        String fileName = args.getFileNameNoExtn();
+        try {
+            numChars = Integer.parseInt(args.getParam1());
+            if (numChars >= fileName.length()) {
+                log("***Number of characters exceeding file name length.");
+            }
+        } catch (NumberFormatException e) {
+            log("Unable to convert parameter to number.");
+            e.printStackTrace();
+            numChars = 0;
+        }
 
-        return returnFileName;*/
-        return null;
+        return fileName.substring(0, fileName.length() - numChars - 1);
     }
 
 }

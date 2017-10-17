@@ -3,6 +3,10 @@
  */
 public class ReplaceMatch extends BaseProcessor {
 
+    public ReplaceMatch(MyLogger logger) {
+        super(logger);
+    }
+
     /**
      * Remove all occurrence of any digit in file name
      *

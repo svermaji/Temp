@@ -3,6 +3,10 @@
  */
 public class RemoveNumbersFromStart extends BaseProcessor {
 
+    public RemoveNumbersFromStart(MyLogger logger) {
+        super(logger);
+    }
+
     /**
      * Remove all occurrence of any digit in file name
      *

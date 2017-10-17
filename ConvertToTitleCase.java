@@ -3,6 +3,10 @@
  */
 public class ConvertToTitleCase extends BaseProcessor {
 
+    public ConvertToTitleCase(MyLogger logger) {
+        super(logger);
+    }
+
     /**
      * Remove all occurrence of any digit in file name
      *

@@ -3,6 +3,10 @@
  */
 public class RemoveMatch extends BaseProcessor {
 
+    public RemoveMatch(MyLogger logger) {
+        super(logger);
+    }
+
     /**
      * Remove all occurrence of any digit in file name
      *

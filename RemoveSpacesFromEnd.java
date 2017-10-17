@@ -3,6 +3,10 @@
  */
 public class RemoveSpacesFromEnd extends BaseProcessor {
 
+    public RemoveSpacesFromEnd(MyLogger logger) {
+        super(logger);
+    }
+
     /**
      * Remove all occurrence of any digit in file name
      *
@@ -11,13 +15,15 @@ public class RemoveSpacesFromEnd extends BaseProcessor {
      */
     @Override
     protected String process(Arguments args) {
-        //TODO: revisit
-        //fileName = new StringBuilder(fileName).reverse().toString();
-//        StringBuilder sb = new StringBuilder(removeSpacesFromStart(args));
-//        String returnFileName = sb.reverse().toString();
 
-//        return returnFileName;
-        return "";
+        String fn = new StringBuilder(args.getFileNameNoExtn()).reverse().toString();
+        int c;
+        for (c = fn.length(); c > 0; c--) {
+            if (fn.charAt(c) != ' ') {
+                break;
+            }
+        }
+        return args.getFileNameNoExtn().substring(0, c);
     }
 
 }

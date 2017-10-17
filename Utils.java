@@ -146,4 +146,12 @@ public class Utils {
             return file;
         return (file.endsWith(fileType)) ? file.substring(0, file.indexOf(fileType)-1) : file;
     }
+
+    public static void sleep (long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
