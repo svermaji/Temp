@@ -1,0 +1,6 @@
+https://developers.redhat.com/blog/2017/01/19/applying-api-best-practices-in-fuse/
+http://camel.apache.org/enterprise-integration-patterns.html
+https://www.lynda.com/API-tutorials/Effective-Design-RESTful-APIs/166777-2.html?srchtrk=index%3a9%0alinktypeid%3a2%0aq%3aAPI+Designing%0apage%3a1%0as%3arelevance%0asa%3atrue%0aproducttypeid%3a2
+	https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Fuse/6.0/html/Developing_RESTful_Web_Services/files/RESTIntro.html
+https://www.udemy.com/web-services-testing-with-soap-ui/, http://searchmicroservices.techtarget.com/tip/The-basics-of-establishing-a-RESTful-API-testing-program?utm_content=control&utm_medium=EM&asrc=EM_ERU_68547791&utm_campaign=20161124_ERU%20Transmission%20for%2011/24/2016%20(UserUniverse:%202235959)&utm_source=ERU&src=5582024
+https://developers.redhat.com/blog/2017/01/19/applying-api-best-practices-in-fuse/
