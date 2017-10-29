@@ -1,3 +1,15 @@
+designer ......... 
+b2b ... throtlling .....
+b2c ..... 
+how fav for developer
+sandbox url.....dev box
+design using swagger ..... use UI to test and share sandbox url
+expose API using apatche cxf - 
+best way to TDD/BDD .... enable biz users and test biz definition ...... feature file .....
+AWS as API gateway ....
+api in prod ....... consume to web .... now open for mob ........ routing logic or separate interface ..... skinny response ...... pageable .... SLA
+
+
 https://developers.redhat.com/blog/2017/01/19/applying-api-best-practices-in-fuse/
 http://camel.apache.org/enterprise-integration-patterns.html
 https://www.lynda.com/API-tutorials/Effective-Design-RESTful-APIs/166777-2.html?srchtrk=index%3a9%0alinktypeid%3a2%0aq%3aAPI+Designing%0apage%3a1%0as%3arelevance%0asa%3atrue%0aproducttypeid%3a2
@@ -6,11 +18,11 @@ https://www.udemy.com/web-services-testing-with-soap-ui/, http://searchmicroserv
 https://developers.redhat.com/blog/2017/01/19/applying-api-best-practices-in-fuse/
 
 
-	Communication – able to effectively articulate with the Aviva Stakeholders - queries, clarification, design, progress etc.
-	Design Skills :  This is the main thing they are looking for .
-	Design and Develop RESTful API by applying the best practices & REST constraints
-	Write specifications in Swagger2.0/OAI specifications in YAML format
-	How would you create an API management strategy for your enterprise
-	Best  practices to follow for API security, versioning, lifecycle management
-	How would you write specifications in Swagger2.0/OAI specifications.
-	How much you know Apache Camel, Apache CXF -  You should have a working knowledge on this, they don’t expect you to be experts
+Communication – able to effectively articulate with the Aviva Stakeholders - queries, clarification, design, progress etc.
+Design Skills :  This is the main thing they are looking for .
+Design and Develop RESTful API by applying the best practices (DONE) & REST constraints (DONE) 
+Write specifications in Swagger2.0/OAI specifications in YAML format (DONE)
+How would you create an API management strategy for your enterprise (DONE)
+Best  practices to follow for API security, versioning, lifecycle management (DONE)
+How would you write specifications in Swagger2.0/OAI (Open API Initiative) specifications. (DONE)
+How much you know Apache Camel, Apache CXF -  You should have a working knowledge on this, they don’t expect you to be experts
