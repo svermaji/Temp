@@ -32,6 +32,7 @@ Architecture links
 http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html
 https://aws.amazon.com/architecture/
 http://highscalability.com/blog/2007/9/18/amazon-architecture.html			
+https://www.linkedin.com/pulse/architecting-extremely-large-scale-web-applications-panduranga/
 
 Points to read
 Docker
