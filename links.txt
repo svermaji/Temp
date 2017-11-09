@@ -26,3 +26,15 @@ How would you create an API management strategy for your enterprise (DONE)
 Best  practices to follow for API security, versioning, lifecycle management (DONE)
 How would you write specifications in Swagger2.0/OAI (Open API Initiative) specifications. (DONE)
 How much you know Apache Camel, Apache CXF -  You should have a working knowledge on this, they don’t expect you to be experts
+
+
+Architecture links
+http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html
+https://aws.amazon.com/architecture/
+http://highscalability.com/blog/2007/9/18/amazon-architecture.html			
+
+Points to read
+Docker
+Netflix 
+cloud architecture
+AWS
