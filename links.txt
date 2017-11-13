@@ -42,3 +42,7 @@ AWS
 
 Docker tutorial/sample
 https://howtodoinjava.com/docker/docker-hello-world-example/
+
+Links Big data:
+http://blog.ippon.tech/use-cassandra-mongodb-hbase-accumulo-mysql/
+
