@@ -1,18 +1,3 @@
-Release 3.1.4 - UI/API - Live
-----------------------------------------
-UserList - UI (Nearly 13 user stories)
-UserList - API by Hsbc team
-UI bug fixes from previous release
-
-
-Release 4.0 - API Only release
-------------------------------
-Re authentication for Suspend, Reactivate, Delete and Modify profile – API + UI
-API changes for Nav for SUR/welcome Email and India Digital Cert(Technical Consultancy)
-LMP and We Chat requirements consultancy – API Only
-View and Edit – User Access Levels API Only
-Create New User (SUR) Workflow only – API Only
-
 
 designer ......... 
 b2b ... throtlling .....
