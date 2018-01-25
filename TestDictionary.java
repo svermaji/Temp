@@ -25,6 +25,8 @@ public class TestDictionary {
 
         Properties words = readWords ();
         createWordMapping (words);
+        System.out.println("wordMappings = " + wordMappings);
+        displayMeaning ("gift");
 
         /*generateHash("DDCCBBAA");
         generateHash("AABBCCDD");
@@ -35,6 +37,12 @@ public class TestDictionary {
         generateHash("ADBADCCB");
         generateHash("ADBACDCB");
         generateHash("ADBACDBC");*/
+    }
+
+    private void displayMeaning(String word) {
+        WordMeaning meaning = wordMappings.get(generateHash(word));
+        List<Long> hashes = meaning.getSynonymsHashes();
+        hashes.forEach(v -> System.out.println(wordMappings.get(v).getWord()));
     }
 
     private void createWordMapping(Properties words) {
@@ -48,10 +56,9 @@ public class TestDictionary {
 
         String[] arr = v.split(",");
         long keyHash = generateHash(k);
-        boolean keyPresent = wordMappings.containsKey(keyHash);
         for (String s : arr) {
             long valHash = generateHash(s);
-            if (keyPresent) {
+            if (wordMappings.containsKey(keyHash)) {
                 WordMeaning wordMeaning = wordMappings.get(keyHash);
                 List<Long> hashes = wordMeaning.getSynonymsHashes();
                 if (!hashes.contains(valHash)) {
@@ -83,9 +90,9 @@ public class TestDictionary {
         Properties properties = new Properties();
 
         properties.put("gift", "present,donation,natural-gift");
-        properties.put("present", "donation,natural-gift");
-        properties.put("mother", "parent");
-        properties.put("birth", "genesis");
+//        properties.put("present", "donation,natural-gift");
+//        properties.put("mother", "parent");
+//        properties.put("birth", "genesis");
 
         return properties;
     }
@@ -94,7 +101,7 @@ public class TestDictionary {
         long hash = str.hashCode();
         hash *= (hash > 0) ? hash : hash*-1;
 
-        System.out.println("hash = " + hash);
+        //System.out.println("hash = " + hash);
         return hash;
     }
 
@@ -113,6 +120,14 @@ public class TestDictionary {
 
         public List<Long> getSynonymsHashes() {
             return synonymsHashes;
+        }
+
+        public void setSynonymsHashes(List<Long> synonymsHashes) {
+            this.synonymsHashes = synonymsHashes;
+        }
+
+        public String toString () {
+            return word + ", synonyms count = " + synonymsHashes.size();
         }
     }
 
