@@ -1,0 +1,102 @@
+sudo su fuseuser
+jb61='jboss-fuse-6.1.1.redhat-412'
+jb62='jboss-fuse-6.2.1.redhat-169'
+jb622='jboss-fuse-6.2.1.redhat-222'
+jb=${jb62}
+echo ${jb}
+rm -f /fuse/*.sh
+printf 'ps -eaf | grep karaf' > /fuse/chk.sh
+printf 'sudo su fuseuser' > /fuse/fu.sh
+printf 'cd /fuse/%s/bin/ \n . fuse\n' "$jb" > /fuse/f.sh
+printf 'cd /fuse/%s/bin/ \n ./client\n' "$jb" > /fuse/cl.sh
+printf 'cd /fuse/%s/bin/ \n . fuse debug\n' "$jb" > /fuse/fd.sh
+printf 'cd /fuse/%s/bin/' "$jb" > /fuse/jb.sh
+printf 'cd /fuse/%s/data/log/\n cat deployverify.out' "$jb" > /fuse/lg.sh
+chmod 777 /fuse/*.sh 
+
+. /fuse/cl.sh
+------------------------
+Git commands - Git location (C:\Users\vermas9\AppData\Local\Programs\Git)
+-------------
+Switch to branch ==> Git checkout BRANCH
+soft reset ==> git reset --soft HEAD~
+To create branch at local ==> git checkout -b IAPI-70018
+To create branch at remote ==> git push -u origin IAPI-70018
+Go to branch by force reset ==> git checkout IAPI-70018 -f
+Delete branch locally ==> git branch -d branch_name
+Delete branch remotely ==> git push <remote_name> --delete <branch_name>
+Fetch remote branches ==> git fetch -p origin
+
+Git shortcuts/Aliases
+git config --global user.name "Shailendra Verma"
+git config --global user.email shailendra.verma@aviva.com
+git config --global alias.co checkout
+git config --global alias.cm 'commit -m'
+git config --global alias.st status
+git config --global alias.p pull
+git config --global alias.pu push
+git config --global alias.br branch
+git config --global alias.soft 'reset --soft HEAD~'
+git config --global alias.hard 'reset --hard'
+git config --global alias.pbr 'push -u origin'
+git config --global alias.rdel 'push origin --delete'
+git config --global alias.ldel 'branch -D' ==> -d is for delete but -D is force delete irrespective of merge
+git config --global alias.fo 'fetch -p origin'
+git submodule init
+git submodule update
+git submodule status --recursive
+
+To get default branch of git
+git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
+
+Git history revert rewrite or delete commits
+    - git reset --hard <commit-id>
+    - git push origin HEAD --force
+Example
+    - git reset --hard 27ec9c03420 (commit-id above which commits will be deleted)
+    - git push origin HEAD --force 
+
+Command for int.core.core
+  - git reset --hard 4929681e4be
+  - git push origin HEAD --force 
+
+--------------------------------------
+
+aws iam get-role --role-name digital-integration-admin
+aws sts get-caller-identity
+
+aws s3 cp SOURCE_DIR s3://DEST_BUCKET/ --recursive
+aws s3 cp test.txt s3://mybucket/test2.txt
+aws s3 cp fuse-recordings s3://aviva-client-workload1-nonprod-digital-integration-fuse-forum/ --recursive
+aws s3 cp "fuse-recordings/Fuse Forum - 26 October 2018 11.02.55.mp4" s3://aviva-client-workload1-nonprod-digital-integration-fuse-forum/ 
+aws s3 cp . s3://aviva-client-digital1-nonprod-digital-integration/ --recursive
+
+set AWS_DEFAULT_PROFILE=admin
+aws s3 cp s3://aviva-client-digital1-nonprod-digital-integration/dev/banking/adyen/settlementreports/external_settlement_report_2019_04_23.csv .
+aws s3 ls s3://aviva-client-digital1-nonprod-digital-integration/dev/banking/
+--------------------
+Assume role for CLI session
+aws sts assume-role --role-arn "arn:aws:iam::300820918606:role/digital-integration/digital-integration-admin" --role-session-name AWSCLI-Session
+aws s3 cp "Fuse Forum - 14 September 2018 Q&A.mp4" s3://aviva-client-workload1-nonprod-digital-integration-fuse-forum
+aws iam list-roles --query "Roles[?RoleName == 'digital-integration-admin'].[RoleName, Arn]"
+
+CURL for jenkins slave to test sonarqube
+curl -u vermas9 https://sonarqube.avivaaws.com/api/user_tokens/search?login=vermas9
+
+command to restart - systemctl restart jenkins_swarm 
+command to status - systemctl status jenkins_swarm 
+--------------------------------------
+export dt=$(date +"%d-%b-%Y")
+zip /home/zxvermas9/all-logs-$dt.zip /fuse/jboss-fuse-6.2.1.redhat-169/data/log/*
+export dt=$(date +"%d-%b-%Y")
+zip /home/zxvermas9/fuse-$dt.zip /fuse/jboss-fuse-6.2.1.redhat-169/data/log/fuse.log*
+
+sh "mvn help:effective-settings"
+sh "mvn -B -e -X release:prepare release:perform"
+find command in linux
+find / -name "*.err"
+
+python get-pip.py --proxy="http://vermas9:Sv^^1212@internet_proxy.via.novonet:80"
+python get-pip.py --proxy="http://vermas9:Sv^^1212@uknp-obproxy.avivaaws.com:80"
+
+PYTHONHTTPSVERIFY=0 python get-pip.py --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pip.pypa.io
