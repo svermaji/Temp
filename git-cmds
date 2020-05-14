@@ -1,0 +1,39 @@
+cmt=$1
+if [-z "$1"]
+then
+  cmd='default comment'
+fi
+echo $cmt
+
+git st
+git add .
+git cm "$cmt"
+git pu
+
+---------------------
+
+Git commands
+=============
+git config --global user.email "shailendravermag@gmail.com"
+git config --global user.name "Shailendra Verma"
+
+git config --global alias.co checkout
+git config --global alias.cm 'commit -m'
+git config --global alias.st status
+git config --global alias.p pull
+git config --global alias.pu push
+git config --global alias.br branch
+git config --global alias.soft 'reset --soft HEAD~'
+git config --global alias.hard 'reset --hard'
+git config --global alias.pbr 'push -u origin'
+git config --global alias.rdel 'push origin --delete'
+git config --global alias.ldel 'push origin --D'
+    ==> d for delete and D for force delete
+git config --global alias.fo 'fetch -p origin'
+
+git submodule init
+git submodule update
+git submodule status --recursive
+
+git remote add origin https://github.com/svermaji/Spring-CryptoJS-AES-example.git
+git push -u origin master
