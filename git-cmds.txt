@@ -1,17 +1,3 @@
-cmt=$1
-if [-z "$1"]
-then
-  cmd='default comment'
-fi
-echo $cmt
-
-git st
-git add .
-git cm "$cmt"
-git pu
-
----------------------
-
 Git commands
 =============
 git config --global user.email "shailendravermag@gmail.com"
