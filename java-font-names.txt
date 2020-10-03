@@ -1,0 +1,1679 @@
+
+FontName() = Agency FB
+xxxxName() = Agency FB
+xxfamily() = Agency FB
+-----------
+FontName() = Agency FB Bold
+xxxxName() = Agency FB Bold
+xxfamily() = Agency FB
+-----------
+FontName() = Algerian
+xxxxName() = Algerian
+xxfamily() = Algerian
+-----------
+FontName() = Arial
+xxxxName() = Arial
+xxfamily() = Arial
+-----------
+FontName() = Arial Black
+xxxxName() = Arial Black
+xxfamily() = Arial Black
+-----------
+FontName() = Arial Bold
+xxxxName() = Arial Bold
+xxfamily() = Arial
+-----------
+FontName() = Arial Bold Italic
+xxxxName() = Arial Bold Italic
+xxfamily() = Arial
+-----------
+FontName() = Arial Italic
+xxxxName() = Arial Italic
+xxfamily() = Arial
+-----------
+FontName() = Arial Narrow
+xxxxName() = Arial Narrow
+xxfamily() = Arial Narrow
+-----------
+FontName() = Arial Narrow Bold
+xxxxName() = Arial Narrow Bold
+xxfamily() = Arial Narrow
+-----------
+FontName() = Arial Narrow Bold Italic
+xxxxName() = Arial Narrow Bold Italic
+xxfamily() = Arial Narrow
+-----------
+FontName() = Arial Narrow Italic
+xxxxName() = Arial Narrow Italic
+xxfamily() = Arial Narrow
+-----------
+FontName() = Arial Rounded MT Bold
+xxxxName() = Arial Rounded MT Bold
+xxfamily() = Arial Rounded MT Bold
+-----------
+FontName() = Bahnschrift
+xxxxName() = Bahnschrift
+xxfamily() = Bahnschrift
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift Bold
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift Bold Condensed
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift Bold SemiCondensed
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift Condensed
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift Light
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift Light Condensed
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift Light SemiCondensed
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift Regular
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift SemiBold
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift SemiBold Condensed
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift SemiBold SemiCondensed
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift SemiCondensed
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift SemiLight
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift SemiLight Condensed
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Bahnschrift SemiLight SemiCondensed
+xxfamily() = Dialog
+-----------
+FontName() = Baskerville Old Face
+xxxxName() = Baskerville Old Face
+xxfamily() = Baskerville Old Face
+-----------
+FontName() = Bauhaus 93
+xxxxName() = Bauhaus 93
+xxfamily() = Bauhaus 93
+-----------
+FontName() = Bell MT
+xxxxName() = Bell MT
+xxfamily() = Bell MT
+-----------
+FontName() = Bell MT Bold
+xxxxName() = Bell MT Bold
+xxfamily() = Bell MT
+-----------
+FontName() = Bell MT Italic
+xxxxName() = Bell MT Italic
+xxfamily() = Bell MT
+-----------
+FontName() = Berlin Sans FB
+xxxxName() = Berlin Sans FB
+xxfamily() = Berlin Sans FB
+-----------
+FontName() = Berlin Sans FB Bold
+xxxxName() = Berlin Sans FB Bold
+xxfamily() = Berlin Sans FB
+-----------
+FontName() = Berlin Sans FB Demi Bold
+xxxxName() = Berlin Sans FB Demi Bold
+xxfamily() = Berlin Sans FB Demi
+-----------
+FontName() = Bernard MT Condensed
+xxxxName() = Bernard MT Condensed
+xxfamily() = Bernard MT Condensed
+-----------
+FontName() = Blackadder ITC
+xxxxName() = Blackadder ITC
+xxfamily() = Blackadder ITC
+-----------
+FontName() = Bodoni MT
+xxxxName() = Bodoni MT
+xxfamily() = Bodoni MT
+-----------
+FontName() = Bodoni MT Black
+xxxxName() = Bodoni MT Black
+xxfamily() = Bodoni MT Black
+-----------
+FontName() = Bodoni MT Black Italic
+xxxxName() = Bodoni MT Black Italic
+xxfamily() = Bodoni MT Black
+-----------
+FontName() = Bodoni MT Bold
+xxxxName() = Bodoni MT Bold
+xxfamily() = Bodoni MT
+-----------
+FontName() = Bodoni MT Bold Italic
+xxxxName() = Bodoni MT Bold Italic
+xxfamily() = Bodoni MT
+-----------
+FontName() = Bodoni MT Condensed
+xxxxName() = Bodoni MT Condensed
+xxfamily() = Bodoni MT Condensed
+-----------
+FontName() = Bodoni MT Condensed Bold
+xxxxName() = Bodoni MT Condensed Bold
+xxfamily() = Bodoni MT Condensed
+-----------
+FontName() = Bodoni MT Condensed Bold Italic
+xxxxName() = Bodoni MT Condensed Bold Italic
+xxfamily() = Bodoni MT Condensed
+-----------
+FontName() = Bodoni MT Condensed Italic
+xxxxName() = Bodoni MT Condensed Italic
+xxfamily() = Bodoni MT Condensed
+-----------
+FontName() = Bodoni MT Italic
+xxxxName() = Bodoni MT Italic
+xxfamily() = Bodoni MT
+-----------
+FontName() = Bodoni MT Poster Compressed
+xxxxName() = Bodoni MT Poster Compressed
+xxfamily() = Bodoni MT Poster Compressed
+-----------
+FontName() = Book Antiqua
+xxxxName() = Book Antiqua
+xxfamily() = Book Antiqua
+-----------
+FontName() = Book Antiqua Bold
+xxxxName() = Book Antiqua Bold
+xxfamily() = Book Antiqua
+-----------
+FontName() = Book Antiqua Bold Italic
+xxxxName() = Book Antiqua Bold Italic
+xxfamily() = Book Antiqua
+-----------
+FontName() = Book Antiqua Italic
+xxxxName() = Book Antiqua Italic
+xxfamily() = Book Antiqua
+-----------
+FontName() = Bookman Old Style
+xxxxName() = Bookman Old Style
+xxfamily() = Bookman Old Style
+-----------
+FontName() = Bookman Old Style Bold
+xxxxName() = Bookman Old Style Bold
+xxfamily() = Bookman Old Style
+-----------
+FontName() = Bookman Old Style Bold Italic
+xxxxName() = Bookman Old Style Bold Italic
+xxfamily() = Bookman Old Style
+-----------
+FontName() = Bookman Old Style Italic
+xxxxName() = Bookman Old Style Italic
+xxfamily() = Bookman Old Style
+-----------
+FontName() = Bookshelf Symbol 7
+xxxxName() = Bookshelf Symbol 7
+xxfamily() = Bookshelf Symbol 7
+-----------
+FontName() = Bradley Hand ITC
+xxxxName() = Bradley Hand ITC
+xxfamily() = Bradley Hand ITC
+-----------
+FontName() = Britannic Bold
+xxxxName() = Britannic Bold
+xxfamily() = Britannic Bold
+-----------
+FontName() = Broadway
+xxxxName() = Broadway
+xxfamily() = Broadway
+-----------
+FontName() = Brush Script MT Italic
+xxxxName() = Brush Script MT Italic
+xxfamily() = Brush Script MT
+-----------
+FontName() = Calibri
+xxxxName() = Calibri
+xxfamily() = Calibri
+-----------
+FontName() = Calibri Bold
+xxxxName() = Calibri Bold
+xxfamily() = Calibri
+-----------
+FontName() = Calibri Bold Italic
+xxxxName() = Calibri Bold Italic
+xxfamily() = Calibri
+-----------
+FontName() = Calibri Italic
+xxxxName() = Calibri Italic
+xxfamily() = Calibri
+-----------
+FontName() = Calibri Light
+xxxxName() = Calibri Light
+xxfamily() = Calibri Light
+-----------
+FontName() = Calibri Light Italic
+xxxxName() = Calibri Light Italic
+xxfamily() = Calibri Light
+-----------
+FontName() = Californian FB
+xxxxName() = Californian FB
+xxfamily() = Californian FB
+-----------
+FontName() = Californian FB Bold
+xxxxName() = Californian FB Bold
+xxfamily() = Californian FB
+-----------
+FontName() = Californian FB Italic
+xxxxName() = Californian FB Italic
+xxfamily() = Californian FB
+-----------
+FontName() = Calisto MT
+xxxxName() = Calisto MT
+xxfamily() = Calisto MT
+-----------
+FontName() = Calisto MT Bold
+xxxxName() = Calisto MT Bold
+xxfamily() = Calisto MT
+-----------
+FontName() = Calisto MT Bold Italic
+xxxxName() = Calisto MT Bold Italic
+xxfamily() = Calisto MT
+-----------
+FontName() = Calisto MT Italic
+xxxxName() = Calisto MT Italic
+xxfamily() = Calisto MT
+-----------
+FontName() = Cambria
+xxxxName() = Cambria
+xxfamily() = Cambria
+-----------
+FontName() = Cambria Bold
+xxxxName() = Cambria Bold
+xxfamily() = Cambria
+-----------
+FontName() = Cambria Bold Italic
+xxxxName() = Cambria Bold Italic
+xxfamily() = Cambria
+-----------
+FontName() = Cambria Italic
+xxxxName() = Cambria Italic
+xxfamily() = Cambria
+-----------
+FontName() = Cambria Math
+xxxxName() = Cambria Math
+xxfamily() = Cambria Math
+-----------
+FontName() = Candara
+xxxxName() = Candara
+xxfamily() = Candara
+-----------
+FontName() = Candara Bold
+xxxxName() = Candara Bold
+xxfamily() = Candara
+-----------
+FontName() = Candara Bold Italic
+xxxxName() = Candara Bold Italic
+xxfamily() = Candara
+-----------
+FontName() = Candara Italic
+xxxxName() = Candara Italic
+xxfamily() = Candara
+-----------
+FontName() = Candara Light
+xxxxName() = Candara Light
+xxfamily() = Candara Light
+-----------
+FontName() = Candara Light Italic
+xxxxName() = Candara Light Italic
+xxfamily() = Candara Light
+-----------
+FontName() = Castellar
+xxxxName() = Castellar
+xxfamily() = Castellar
+-----------
+FontName() = Centaur
+xxxxName() = Centaur
+xxfamily() = Centaur
+-----------
+FontName() = Century
+xxxxName() = Century
+xxfamily() = Century
+-----------
+FontName() = Century Gothic
+xxxxName() = Century Gothic
+xxfamily() = Century Gothic
+-----------
+FontName() = Century Gothic Bold
+xxxxName() = Century Gothic Bold
+xxfamily() = Century Gothic
+-----------
+FontName() = Century Gothic Bold Italic
+xxxxName() = Century Gothic Bold Italic
+xxfamily() = Century Gothic
+-----------
+FontName() = Century Gothic Italic
+xxxxName() = Century Gothic Italic
+xxfamily() = Century Gothic
+-----------
+FontName() = Century Schoolbook
+xxxxName() = Century Schoolbook
+xxfamily() = Century Schoolbook
+-----------
+FontName() = Century Schoolbook Bold
+xxxxName() = Century Schoolbook Bold
+xxfamily() = Century Schoolbook
+-----------
+FontName() = Century Schoolbook Bold Italic
+xxxxName() = Century Schoolbook Bold Italic
+xxfamily() = Century Schoolbook
+-----------
+FontName() = Century Schoolbook Italic
+xxxxName() = Century Schoolbook Italic
+xxfamily() = Century Schoolbook
+-----------
+FontName() = Chiller
+xxxxName() = Chiller
+xxfamily() = Chiller
+-----------
+FontName() = Colonna MT
+xxxxName() = Colonna MT
+xxfamily() = Colonna MT
+-----------
+FontName() = Comic Sans MS
+xxxxName() = Comic Sans MS
+xxfamily() = Comic Sans MS
+-----------
+FontName() = Comic Sans MS Bold
+xxxxName() = Comic Sans MS Bold
+xxfamily() = Comic Sans MS
+-----------
+FontName() = Comic Sans MS Bold Italic
+xxxxName() = Comic Sans MS Bold Italic
+xxfamily() = Comic Sans MS
+-----------
+FontName() = Comic Sans MS Italic
+xxxxName() = Comic Sans MS Italic
+xxfamily() = Comic Sans MS
+-----------
+FontName() = Consolas
+xxxxName() = Consolas
+xxfamily() = Consolas
+-----------
+FontName() = Consolas Bold
+xxxxName() = Consolas Bold
+xxfamily() = Consolas
+-----------
+FontName() = Consolas Bold Italic
+xxxxName() = Consolas Bold Italic
+xxfamily() = Consolas
+-----------
+FontName() = Consolas Italic
+xxxxName() = Consolas Italic
+xxfamily() = Consolas
+-----------
+FontName() = Constantia
+xxxxName() = Constantia
+xxfamily() = Constantia
+-----------
+FontName() = Constantia Bold
+xxxxName() = Constantia Bold
+xxfamily() = Constantia
+-----------
+FontName() = Constantia Bold Italic
+xxxxName() = Constantia Bold Italic
+xxfamily() = Constantia
+-----------
+FontName() = Constantia Italic
+xxxxName() = Constantia Italic
+xxfamily() = Constantia
+-----------
+FontName() = Cooper Black
+xxxxName() = Cooper Black
+xxfamily() = Cooper Black
+-----------
+FontName() = Copperplate Gothic Bold
+xxxxName() = Copperplate Gothic Bold
+xxfamily() = Copperplate Gothic Bold
+-----------
+FontName() = Copperplate Gothic Light
+xxxxName() = Copperplate Gothic Light
+xxfamily() = Copperplate Gothic Light
+-----------
+FontName() = Corbel
+xxxxName() = Corbel
+xxfamily() = Corbel
+-----------
+FontName() = Corbel Bold
+xxxxName() = Corbel Bold
+xxfamily() = Corbel
+-----------
+FontName() = Corbel Bold Italic
+xxxxName() = Corbel Bold Italic
+xxfamily() = Corbel
+-----------
+FontName() = Corbel Italic
+xxxxName() = Corbel Italic
+xxfamily() = Corbel
+-----------
+FontName() = Corbel Light
+xxxxName() = Corbel Light
+xxfamily() = Corbel Light
+-----------
+FontName() = Corbel Light Italic
+xxxxName() = Corbel Light Italic
+xxfamily() = Corbel Light
+-----------
+FontName() = Courier New
+xxxxName() = Courier New
+xxfamily() = Courier New
+-----------
+FontName() = Courier New Bold
+xxxxName() = Courier New Bold
+xxfamily() = Courier New
+-----------
+FontName() = Courier New Bold Italic
+xxxxName() = Courier New Bold Italic
+xxfamily() = Courier New
+-----------
+FontName() = Courier New Italic
+xxxxName() = Courier New Italic
+xxfamily() = Courier New
+-----------
+FontName() = Curlz MT
+xxxxName() = Curlz MT
+xxfamily() = Curlz MT
+-----------
+FontName() = Dialog.bold
+xxxxName() = Dialog.bold
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.bolditalic
+xxxxName() = Dialog.bolditalic
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.italic
+xxxxName() = Dialog.italic
+xxfamily() = Dialog
+-----------
+FontName() = Dialog.plain
+xxxxName() = Dialog.plain
+xxfamily() = Dialog
+-----------
+FontName() = DialogInput.bold
+xxxxName() = DialogInput.bold
+xxfamily() = DialogInput
+-----------
+FontName() = DialogInput.bolditalic
+xxxxName() = DialogInput.bolditalic
+xxfamily() = DialogInput
+-----------
+FontName() = DialogInput.italic
+xxxxName() = DialogInput.italic
+xxfamily() = DialogInput
+-----------
+FontName() = DialogInput.plain
+xxxxName() = DialogInput.plain
+xxfamily() = DialogInput
+-----------
+FontName() = Dubai Bold
+xxxxName() = Dubai Bold
+xxfamily() = Dubai
+-----------
+FontName() = Dubai Light
+xxxxName() = Dubai Light
+xxfamily() = Dubai Light
+-----------
+FontName() = Dubai Medium
+xxxxName() = Dubai Medium
+xxfamily() = Dubai Medium
+-----------
+FontName() = Dubai Regular
+xxxxName() = Dubai Regular
+xxfamily() = Dubai
+-----------
+FontName() = Ebrima
+xxxxName() = Ebrima
+xxfamily() = Ebrima
+-----------
+FontName() = Ebrima Bold
+xxxxName() = Ebrima Bold
+xxfamily() = Ebrima
+-----------
+FontName() = Edwardian Script ITC
+xxxxName() = Edwardian Script ITC
+xxfamily() = Edwardian Script ITC
+-----------
+FontName() = Elephant
+xxxxName() = Elephant
+xxfamily() = Elephant
+-----------
+FontName() = Elephant Italic
+xxxxName() = Elephant Italic
+xxfamily() = Elephant
+-----------
+FontName() = Engravers MT
+xxxxName() = Engravers MT
+xxfamily() = Engravers MT
+-----------
+FontName() = Eras Bold ITC
+xxxxName() = Eras Bold ITC
+xxfamily() = Eras Bold ITC
+-----------
+FontName() = Eras Demi ITC
+xxxxName() = Eras Demi ITC
+xxfamily() = Eras Demi ITC
+-----------
+FontName() = Eras Light ITC
+xxxxName() = Eras Light ITC
+xxfamily() = Eras Light ITC
+-----------
+FontName() = Eras Medium ITC
+xxxxName() = Eras Medium ITC
+xxfamily() = Eras Medium ITC
+-----------
+FontName() = Felix Titling
+xxxxName() = Felix Titling
+xxfamily() = Felix Titling
+-----------
+FontName() = Footlight MT Light
+xxxxName() = Footlight MT Light
+xxfamily() = Footlight MT Light
+-----------
+FontName() = Forte
+xxxxName() = Forte
+xxfamily() = Forte
+-----------
+FontName() = Franklin Gothic Book
+xxxxName() = Franklin Gothic Book
+xxfamily() = Franklin Gothic Book
+-----------
+FontName() = Franklin Gothic Book Italic
+xxxxName() = Franklin Gothic Book Italic
+xxfamily() = Franklin Gothic Book
+-----------
+FontName() = Franklin Gothic Demi
+xxxxName() = Franklin Gothic Demi
+xxfamily() = Franklin Gothic Demi
+-----------
+FontName() = Franklin Gothic Demi Cond
+xxxxName() = Franklin Gothic Demi Cond
+xxfamily() = Franklin Gothic Demi Cond
+-----------
+FontName() = Franklin Gothic Demi Italic
+xxxxName() = Franklin Gothic Demi Italic
+xxfamily() = Franklin Gothic Demi
+-----------
+FontName() = Franklin Gothic Heavy
+xxxxName() = Franklin Gothic Heavy
+xxfamily() = Franklin Gothic Heavy
+-----------
+FontName() = Franklin Gothic Heavy Italic
+xxxxName() = Franklin Gothic Heavy Italic
+xxfamily() = Franklin Gothic Heavy
+-----------
+FontName() = Franklin Gothic Medium
+xxxxName() = Franklin Gothic Medium
+xxfamily() = Franklin Gothic Medium
+-----------
+FontName() = Franklin Gothic Medium Cond
+xxxxName() = Franklin Gothic Medium Cond
+xxfamily() = Franklin Gothic Medium Cond
+-----------
+FontName() = Franklin Gothic Medium Italic
+xxxxName() = Franklin Gothic Medium Italic
+xxfamily() = Franklin Gothic Medium
+-----------
+FontName() = Freestyle Script
+xxxxName() = Freestyle Script
+xxfamily() = Freestyle Script
+-----------
+FontName() = French Script MT
+xxxxName() = French Script MT
+xxfamily() = French Script MT
+-----------
+FontName() = Gabriola
+xxxxName() = Gabriola
+xxfamily() = Gabriola
+-----------
+FontName() = Gadugi
+xxxxName() = Gadugi
+xxfamily() = Gadugi
+-----------
+FontName() = Gadugi Bold
+xxxxName() = Gadugi Bold
+xxfamily() = Gadugi
+-----------
+FontName() = Garamond
+xxxxName() = Garamond
+xxfamily() = Garamond
+-----------
+FontName() = Garamond Bold
+xxxxName() = Garamond Bold
+xxfamily() = Garamond
+-----------
+FontName() = Garamond Italic
+xxxxName() = Garamond Italic
+xxfamily() = Garamond
+-----------
+FontName() = Georgia
+xxxxName() = Georgia
+xxfamily() = Georgia
+-----------
+FontName() = Georgia Bold
+xxxxName() = Georgia Bold
+xxfamily() = Georgia
+-----------
+FontName() = Georgia Bold Italic
+xxxxName() = Georgia Bold Italic
+xxfamily() = Georgia
+-----------
+FontName() = Georgia Italic
+xxxxName() = Georgia Italic
+xxfamily() = Georgia
+-----------
+FontName() = Gigi
+xxxxName() = Gigi
+xxfamily() = Gigi
+-----------
+FontName() = Gill Sans MT
+xxxxName() = Gill Sans MT
+xxfamily() = Gill Sans MT
+-----------
+FontName() = Gill Sans MT Bold
+xxxxName() = Gill Sans MT Bold
+xxfamily() = Gill Sans MT
+-----------
+FontName() = Gill Sans MT Bold Italic
+xxxxName() = Gill Sans MT Bold Italic
+xxfamily() = Gill Sans MT
+-----------
+FontName() = Gill Sans MT Condensed
+xxxxName() = Gill Sans MT Condensed
+xxfamily() = Gill Sans MT Condensed
+-----------
+FontName() = Gill Sans MT Ext Condensed Bold
+xxxxName() = Gill Sans MT Ext Condensed Bold
+xxfamily() = Gill Sans MT Ext Condensed Bold
+-----------
+FontName() = Gill Sans MT Italic
+xxxxName() = Gill Sans MT Italic
+xxfamily() = Gill Sans MT
+-----------
+FontName() = Gill Sans Ultra Bold
+xxxxName() = Gill Sans Ultra Bold
+xxfamily() = Gill Sans Ultra Bold
+-----------
+FontName() = Gill Sans Ultra Bold Condensed
+xxxxName() = Gill Sans Ultra Bold Condensed
+xxfamily() = Gill Sans Ultra Bold Condensed
+-----------
+FontName() = Gloucester MT Extra Condensed
+xxxxName() = Gloucester MT Extra Condensed
+xxfamily() = Gloucester MT Extra Condensed
+-----------
+FontName() = Goudy Old Style Italic
+xxxxName() = Goudy Old Style
+xxfamily() = Goudy Old Style
+-----------
+FontName() = Goudy Old Style Bold
+xxxxName() = Goudy Old Style Bold
+xxfamily() = Goudy Old Style
+-----------
+FontName() = Goudy Old Style Italic
+xxxxName() = Goudy Old Style Italic
+xxfamily() = Goudy Old Style
+-----------
+FontName() = Goudy Stout
+xxxxName() = Goudy Stout
+xxfamily() = Goudy Stout
+-----------
+FontName() = Haettenschweiler
+xxxxName() = Haettenschweiler
+xxfamily() = Haettenschweiler
+-----------
+FontName() = Harlow Solid Italic
+xxxxName() = Harlow Solid Italic
+xxfamily() = Harlow Solid Italic
+-----------
+FontName() = Harrington
+xxxxName() = Harrington
+xxfamily() = Harrington
+-----------
+FontName() = High Tower Text
+xxxxName() = High Tower Text
+xxfamily() = High Tower Text
+-----------
+FontName() = High Tower Text Italic
+xxxxName() = High Tower Text Italic
+xxfamily() = High Tower Text
+-----------
+FontName() = HoloLens MDL2 Assets
+xxxxName() = HoloLens MDL2 Assets
+xxfamily() = HoloLens MDL2 Assets
+-----------
+FontName() = Impact
+xxxxName() = Impact
+xxfamily() = Impact
+-----------
+FontName() = Imprint MT Shadow
+xxxxName() = Imprint MT Shadow
+xxfamily() = Imprint MT Shadow
+-----------
+FontName() = Informal Roman
+xxxxName() = Informal Roman
+xxfamily() = Informal Roman
+-----------
+FontName() = Ink Free
+xxxxName() = Ink Free
+xxfamily() = Ink Free
+-----------
+FontName() = Javanese Text
+xxxxName() = Javanese Text
+xxfamily() = Javanese Text
+-----------
+FontName() = Jokerman
+xxxxName() = Jokerman
+xxfamily() = Jokerman
+-----------
+FontName() = Juice ITC
+xxxxName() = Juice ITC
+xxfamily() = Juice ITC
+-----------
+FontName() = Kristen ITC
+xxxxName() = Kristen ITC
+xxfamily() = Kristen ITC
+-----------
+FontName() = Kunstler Script
+xxxxName() = Kunstler Script
+xxfamily() = Kunstler Script
+-----------
+FontName() = Leelawadee
+xxxxName() = Leelawadee
+xxfamily() = Leelawadee
+-----------
+FontName() = Leelawadee Bold
+xxxxName() = Leelawadee Bold
+xxfamily() = Leelawadee
+-----------
+FontName() = Leelawadee UI
+xxxxName() = Leelawadee UI
+xxfamily() = Leelawadee UI
+-----------
+FontName() = Leelawadee UI Bold
+xxxxName() = Leelawadee UI Bold
+xxfamily() = Leelawadee UI
+-----------
+FontName() = Leelawadee UI Semilight
+xxxxName() = Leelawadee UI Semilight
+xxfamily() = Leelawadee UI Semilight
+-----------
+FontName() = Lucida Bright
+xxxxName() = Lucida Bright
+xxfamily() = Lucida Bright
+-----------
+FontName() = Lucida Bright Demibold
+xxxxName() = Lucida Bright Demibold
+xxfamily() = Lucida Bright
+-----------
+FontName() = Lucida Bright Demibold Italic
+xxxxName() = Lucida Bright Demibold Italic
+xxfamily() = Lucida Bright
+-----------
+FontName() = Lucida Bright Italic
+xxxxName() = Lucida Bright Italic
+xxfamily() = Lucida Bright
+-----------
+FontName() = Lucida Calligraphy Italic
+xxxxName() = Lucida Calligraphy Italic
+xxfamily() = Lucida Calligraphy
+-----------
+FontName() = Lucida Console
+xxxxName() = Lucida Console
+xxfamily() = Lucida Console
+-----------
+FontName() = Lucida Fax Demibold
+xxxxName() = Lucida Fax Demibold
+xxfamily() = Lucida Fax
+-----------
+FontName() = Lucida Fax Demibold Italic
+xxxxName() = Lucida Fax Demibold Italic
+xxfamily() = Lucida Fax
+-----------
+FontName() = Lucida Fax Italic
+xxxxName() = Lucida Fax Italic
+xxfamily() = Lucida Fax
+-----------
+FontName() = Lucida Fax Regular
+xxxxName() = Lucida Fax Regular
+xxfamily() = Lucida Fax
+-----------
+FontName() = Lucida Handwriting Italic
+xxxxName() = Lucida Handwriting Italic
+xxfamily() = Lucida Handwriting
+-----------
+FontName() = Lucida Sans Demibold Italic
+xxxxName() = Lucida Sans Demibold Italic
+xxfamily() = Lucida Sans
+-----------
+FontName() = Lucida Sans Demibold Roman
+xxxxName() = Lucida Sans Demibold Roman
+xxfamily() = Lucida Sans
+-----------
+FontName() = Lucida Sans Italic
+xxxxName() = Lucida Sans Italic
+xxfamily() = Lucida Sans
+-----------
+FontName() = Lucida Sans Regular
+xxxxName() = Lucida Sans Regular
+xxfamily() = Lucida Sans
+-----------
+FontName() = Lucida Sans Typewriter Bold
+xxxxName() = Lucida Sans Typewriter Bold
+xxfamily() = Lucida Sans Typewriter
+-----------
+FontName() = Lucida Sans Typewriter Bold Oblique
+xxxxName() = Lucida Sans Typewriter Bold Oblique
+xxfamily() = Lucida Sans Typewriter
+-----------
+FontName() = Lucida Sans Typewriter Oblique
+xxxxName() = Lucida Sans Typewriter Oblique
+xxfamily() = Lucida Sans Typewriter
+-----------
+FontName() = Lucida Sans Typewriter Regular
+xxxxName() = Lucida Sans Typewriter Regular
+xxfamily() = Lucida Sans Typewriter
+-----------
+FontName() = Lucida Sans Unicode
+xxxxName() = Lucida Sans Unicode
+xxfamily() = Lucida Sans Unicode
+-----------
+FontName() = MS Gothic
+xxxxName() = MS Gothic
+xxfamily() = MS Gothic
+-----------
+FontName() = MS Outlook
+xxxxName() = MS Outlook
+xxfamily() = MS Outlook
+-----------
+FontName() = MS PGothic
+xxxxName() = MS PGothic
+xxfamily() = MS PGothic
+-----------
+FontName() = MS Reference Sans Serif
+xxxxName() = MS Reference Sans Serif
+xxfamily() = MS Reference Sans Serif
+-----------
+FontName() = MS Reference Specialty
+xxxxName() = MS Reference Specialty
+xxfamily() = MS Reference Specialty
+-----------
+FontName() = MS UI Gothic
+xxxxName() = MS UI Gothic
+xxfamily() = MS UI Gothic
+-----------
+FontName() = MT Extra
+xxxxName() = MT Extra
+xxfamily() = MT Extra
+-----------
+FontName() = MV Boli
+xxxxName() = MV Boli
+xxfamily() = MV Boli
+-----------
+FontName() = Magneto Bold
+xxxxName() = Magneto Bold
+xxfamily() = Magneto
+-----------
+FontName() = Maiandra GD
+xxxxName() = Maiandra GD
+xxfamily() = Maiandra GD
+-----------
+FontName() = Malgun Gothic
+xxxxName() = Malgun Gothic
+xxfamily() = Malgun Gothic
+-----------
+FontName() = Malgun Gothic Bold
+xxxxName() = Malgun Gothic Bold
+xxfamily() = Malgun Gothic
+-----------
+FontName() = Malgun Gothic Semilight
+xxxxName() = Malgun Gothic Semilight
+xxfamily() = Malgun Gothic Semilight
+-----------
+FontName() = Marlett
+xxxxName() = Marlett
+xxfamily() = Marlett
+-----------
+FontName() = Matura MT Script Capitals
+xxxxName() = Matura MT Script Capitals
+xxfamily() = Matura MT Script Capitals
+-----------
+FontName() = Microsoft Himalaya
+xxxxName() = Microsoft Himalaya
+xxfamily() = Microsoft Himalaya
+-----------
+FontName() = Microsoft JhengHei
+xxxxName() = Microsoft JhengHei
+xxfamily() = Microsoft JhengHei
+-----------
+FontName() = Microsoft JhengHei Bold
+xxxxName() = Microsoft JhengHei Bold
+xxfamily() = Microsoft JhengHei
+-----------
+FontName() = Microsoft JhengHei Light
+xxxxName() = Microsoft JhengHei Light
+xxfamily() = Microsoft JhengHei Light
+-----------
+FontName() = Microsoft JhengHei UI
+xxxxName() = Microsoft JhengHei UI
+xxfamily() = Microsoft JhengHei UI
+-----------
+FontName() = Microsoft JhengHei UI Bold
+xxxxName() = Microsoft JhengHei UI Bold
+xxfamily() = Microsoft JhengHei UI
+-----------
+FontName() = Microsoft JhengHei UI Light
+xxxxName() = Microsoft JhengHei UI Light
+xxfamily() = Microsoft JhengHei UI Light
+-----------
+FontName() = Microsoft New Tai Lue
+xxxxName() = Microsoft New Tai Lue
+xxfamily() = Microsoft New Tai Lue
+-----------
+FontName() = Microsoft New Tai Lue Bold
+xxxxName() = Microsoft New Tai Lue Bold
+xxfamily() = Microsoft New Tai Lue
+-----------
+FontName() = Microsoft PhagsPa
+xxxxName() = Microsoft PhagsPa
+xxfamily() = Microsoft PhagsPa
+-----------
+FontName() = Microsoft PhagsPa Bold
+xxxxName() = Microsoft PhagsPa Bold
+xxfamily() = Microsoft PhagsPa
+-----------
+FontName() = Microsoft Sans Serif
+xxxxName() = Microsoft Sans Serif
+xxfamily() = Microsoft Sans Serif
+-----------
+FontName() = Microsoft Tai Le
+xxxxName() = Microsoft Tai Le
+xxfamily() = Microsoft Tai Le
+-----------
+FontName() = Microsoft Tai Le Bold
+xxxxName() = Microsoft Tai Le Bold
+xxfamily() = Microsoft Tai Le
+-----------
+FontName() = Microsoft Uighur
+xxxxName() = Microsoft Uighur
+xxfamily() = Microsoft Uighur
+-----------
+FontName() = Microsoft Uighur Bold
+xxxxName() = Microsoft Uighur Bold
+xxfamily() = Microsoft Uighur
+-----------
+FontName() = Microsoft YaHei
+xxxxName() = Microsoft YaHei
+xxfamily() = Microsoft YaHei
+-----------
+FontName() = Microsoft YaHei Bold
+xxxxName() = Microsoft YaHei Bold
+xxfamily() = Microsoft YaHei
+-----------
+FontName() = Microsoft YaHei Light
+xxxxName() = Microsoft YaHei Light
+xxfamily() = Microsoft YaHei Light
+-----------
+FontName() = Microsoft YaHei UI
+xxxxName() = Microsoft YaHei UI
+xxfamily() = Microsoft YaHei UI
+-----------
+FontName() = Microsoft YaHei UI Bold
+xxxxName() = Microsoft YaHei UI Bold
+xxfamily() = Microsoft YaHei UI
+-----------
+FontName() = Microsoft YaHei UI Light
+xxxxName() = Microsoft YaHei UI Light
+xxfamily() = Microsoft YaHei UI Light
+-----------
+FontName() = Microsoft Yi Baiti
+xxxxName() = Microsoft Yi Baiti
+xxfamily() = Microsoft Yi Baiti
+-----------
+FontName() = MingLiU-ExtB
+xxxxName() = MingLiU-ExtB
+xxfamily() = MingLiU-ExtB
+-----------
+FontName() = MingLiU_HKSCS-ExtB
+xxxxName() = MingLiU_HKSCS-ExtB
+xxfamily() = MingLiU_HKSCS-ExtB
+-----------
+FontName() = Mistral
+xxxxName() = Mistral
+xxfamily() = Mistral
+-----------
+FontName() = Modern No. 20
+xxxxName() = Modern No. 20
+xxfamily() = Modern No. 20
+-----------
+FontName() = Mongolian Baiti
+xxxxName() = Mongolian Baiti
+xxfamily() = Mongolian Baiti
+-----------
+FontName() = Monospaced.bold
+xxxxName() = Monospaced.bold
+xxfamily() = Monospaced
+-----------
+FontName() = Monospaced.bolditalic
+xxxxName() = Monospaced.bolditalic
+xxfamily() = Monospaced
+-----------
+FontName() = Monospaced.italic
+xxxxName() = Monospaced.italic
+xxfamily() = Monospaced
+-----------
+FontName() = Monospaced.plain
+xxxxName() = Monospaced.plain
+xxfamily() = Monospaced
+-----------
+FontName() = Monotype Corsiva
+xxxxName() = Monotype Corsiva
+xxfamily() = Monotype Corsiva
+-----------
+FontName() = Myanmar Text
+xxxxName() = Myanmar Text
+xxfamily() = Myanmar Text
+-----------
+FontName() = Myanmar Text Bold
+xxxxName() = Myanmar Text Bold
+xxfamily() = Myanmar Text
+-----------
+FontName() = NSimSun
+xxxxName() = NSimSun
+xxfamily() = NSimSun
+-----------
+FontName() = Niagara Engraved
+xxxxName() = Niagara Engraved
+xxfamily() = Niagara Engraved
+-----------
+FontName() = Niagara Solid
+xxxxName() = Niagara Solid
+xxfamily() = Niagara Solid
+-----------
+FontName() = Nirmala UI
+xxxxName() = Nirmala UI
+xxfamily() = Nirmala UI
+-----------
+FontName() = Nirmala UI Bold
+xxxxName() = Nirmala UI Bold
+xxfamily() = Nirmala UI
+-----------
+FontName() = Nirmala UI Semilight
+xxxxName() = Nirmala UI Semilight
+xxfamily() = Nirmala UI Semilight
+-----------
+FontName() = OCR A Extended
+xxxxName() = OCR A Extended
+xxfamily() = OCR A Extended
+-----------
+FontName() = Old English Text MT
+xxxxName() = Old English Text MT
+xxfamily() = Old English Text MT
+-----------
+FontName() = Onyx
+xxxxName() = Onyx
+xxfamily() = Onyx
+-----------
+FontName() = Open Sans
+xxxxName() = Open Sans
+xxfamily() = Open Sans
+-----------
+FontName() = Open Sans Semibold
+xxxxName() = Open Sans Semibold
+xxfamily() = Open Sans Semibold
+-----------
+FontName() = PMingLiU-ExtB
+xxxxName() = PMingLiU-ExtB
+xxfamily() = PMingLiU-ExtB
+-----------
+FontName() = Palace Script MT
+xxxxName() = Palace Script MT
+xxfamily() = Palace Script MT
+-----------
+FontName() = Palatino Linotype
+xxxxName() = Palatino Linotype
+xxfamily() = Palatino Linotype
+-----------
+FontName() = Palatino Linotype Bold
+xxxxName() = Palatino Linotype Bold
+xxfamily() = Palatino Linotype
+-----------
+FontName() = Palatino Linotype Bold Italic
+xxxxName() = Palatino Linotype Bold Italic
+xxfamily() = Palatino Linotype
+-----------
+FontName() = Palatino Linotype Italic
+xxxxName() = Palatino Linotype Italic
+xxfamily() = Palatino Linotype
+-----------
+FontName() = Papyrus
+xxxxName() = Papyrus
+xxfamily() = Papyrus
+-----------
+FontName() = Parchment
+xxxxName() = Parchment
+xxfamily() = Parchment
+-----------
+FontName() = Perpetua
+xxxxName() = Perpetua
+xxfamily() = Perpetua
+-----------
+FontName() = Perpetua Bold
+xxxxName() = Perpetua Bold
+xxfamily() = Perpetua
+-----------
+FontName() = Perpetua Bold Italic
+xxxxName() = Perpetua Bold Italic
+xxfamily() = Perpetua
+-----------
+FontName() = Perpetua Italic
+xxxxName() = Perpetua Italic
+xxfamily() = Perpetua
+-----------
+FontName() = Perpetua Titling MT Bold
+xxxxName() = Perpetua Titling MT Bold
+xxfamily() = Perpetua Titling MT
+-----------
+FontName() = Perpetua Titling MT Light
+xxxxName() = Perpetua Titling MT Light
+xxfamily() = Perpetua Titling MT
+-----------
+FontName() = Playbill
+xxxxName() = Playbill
+xxfamily() = Playbill
+-----------
+FontName() = Poor Richard
+xxxxName() = Poor Richard
+xxfamily() = Poor Richard
+-----------
+FontName() = Pristina
+xxxxName() = Pristina
+xxfamily() = Pristina
+-----------
+FontName() = Rage Italic
+xxxxName() = Rage Italic
+xxfamily() = Rage Italic
+-----------
+FontName() = Ravie
+xxxxName() = Ravie
+xxfamily() = Ravie
+-----------
+FontName() = Rockwell
+xxxxName() = Rockwell
+xxfamily() = Rockwell
+-----------
+FontName() = Rockwell Bold
+xxxxName() = Rockwell Bold
+xxfamily() = Rockwell
+-----------
+FontName() = Rockwell Bold Italic
+xxxxName() = Rockwell Bold Italic
+xxfamily() = Rockwell
+-----------
+FontName() = Rockwell Condensed
+xxxxName() = Rockwell Condensed
+xxfamily() = Rockwell Condensed
+-----------
+FontName() = Rockwell Condensed Bold
+xxxxName() = Rockwell Condensed Bold
+xxfamily() = Rockwell Condensed
+-----------
+FontName() = Rockwell Extra Bold
+xxxxName() = Rockwell Extra Bold
+xxfamily() = Rockwell Extra Bold
+-----------
+FontName() = Rockwell Italic
+xxxxName() = Rockwell Italic
+xxfamily() = Rockwell
+-----------
+FontName() = SansSerif.bold
+xxxxName() = SansSerif.bold
+xxfamily() = SansSerif
+-----------
+FontName() = SansSerif.bolditalic
+xxxxName() = SansSerif.bolditalic
+xxfamily() = SansSerif
+-----------
+FontName() = SansSerif.italic
+xxxxName() = SansSerif.italic
+xxfamily() = SansSerif
+-----------
+FontName() = SansSerif.plain
+xxxxName() = SansSerif.plain
+xxfamily() = SansSerif
+-----------
+FontName() = Script MT Bold
+xxxxName() = Script MT Bold
+xxfamily() = Script MT Bold
+-----------
+FontName() = Segoe MDL2 Assets
+xxxxName() = Segoe MDL2 Assets
+xxfamily() = Segoe MDL2 Assets
+-----------
+FontName() = Segoe Print
+xxxxName() = Segoe Print
+xxfamily() = Segoe Print
+-----------
+FontName() = Segoe Print Bold
+xxxxName() = Segoe Print Bold
+xxfamily() = Segoe Print
+-----------
+FontName() = Segoe Script
+xxxxName() = Segoe Script
+xxfamily() = Segoe Script
+-----------
+FontName() = Segoe Script Bold
+xxxxName() = Segoe Script Bold
+xxfamily() = Segoe Script
+-----------
+FontName() = Segoe UI
+xxxxName() = Segoe UI
+xxfamily() = Segoe UI
+-----------
+FontName() = Segoe UI Black
+xxxxName() = Segoe UI Black
+xxfamily() = Segoe UI Black
+-----------
+FontName() = Segoe UI Black Italic
+xxxxName() = Segoe UI Black Italic
+xxfamily() = Segoe UI Black
+-----------
+FontName() = Segoe UI Bold
+xxxxName() = Segoe UI Bold
+xxfamily() = Segoe UI
+-----------
+FontName() = Segoe UI Bold Italic
+xxxxName() = Segoe UI Bold Italic
+xxfamily() = Segoe UI
+-----------
+FontName() = Segoe UI Emoji
+xxxxName() = Segoe UI Emoji
+xxfamily() = Segoe UI Emoji
+-----------
+FontName() = Segoe UI Historic
+xxxxName() = Segoe UI Historic
+xxfamily() = Segoe UI Historic
+-----------
+FontName() = Segoe UI Italic
+xxxxName() = Segoe UI Italic
+xxfamily() = Segoe UI
+-----------
+FontName() = Segoe UI Light
+xxxxName() = Segoe UI Light
+xxfamily() = Segoe UI Light
+-----------
+FontName() = Segoe UI Light Italic
+xxxxName() = Segoe UI Light Italic
+xxfamily() = Segoe UI Light
+-----------
+FontName() = Segoe UI Semibold
+xxxxName() = Segoe UI Semibold
+xxfamily() = Segoe UI Semibold
+-----------
+FontName() = Segoe UI Semibold Italic
+xxxxName() = Segoe UI Semibold Italic
+xxfamily() = Segoe UI Semibold
+-----------
+FontName() = Segoe UI Semilight
+xxxxName() = Segoe UI Semilight
+xxfamily() = Segoe UI Semilight
+-----------
+FontName() = Segoe UI Semilight Italic
+xxxxName() = Segoe UI Semilight Italic
+xxfamily() = Segoe UI Semilight
+-----------
+FontName() = Segoe UI Symbol
+xxxxName() = Segoe UI Symbol
+xxfamily() = Segoe UI Symbol
+-----------
+FontName() = Serif.bold
+xxxxName() = Serif.bold
+xxfamily() = Serif
+-----------
+FontName() = Serif.bolditalic
+xxxxName() = Serif.bolditalic
+xxfamily() = Serif
+-----------
+FontName() = Serif.italic
+xxxxName() = Serif.italic
+xxfamily() = Serif
+-----------
+FontName() = Serif.plain
+xxxxName() = Serif.plain
+xxfamily() = Serif
+-----------
+FontName() = Showcard Gothic
+xxxxName() = Showcard Gothic
+xxfamily() = Showcard Gothic
+-----------
+FontName() = SimSun
+xxxxName() = SimSun
+xxfamily() = SimSun
+-----------
+FontName() = SimSun-ExtB
+xxxxName() = SimSun-ExtB
+xxfamily() = SimSun-ExtB
+-----------
+FontName() = Sitka Banner
+xxxxName() = Sitka Banner
+xxfamily() = Sitka Banner
+-----------
+FontName() = Sitka Banner Bold
+xxxxName() = Sitka Banner Bold
+xxfamily() = Sitka Banner
+-----------
+FontName() = Sitka Banner Bold Italic
+xxxxName() = Sitka Banner Bold Italic
+xxfamily() = Sitka Banner
+-----------
+FontName() = Sitka Banner Italic
+xxxxName() = Sitka Banner Italic
+xxfamily() = Sitka Banner
+-----------
+FontName() = Sitka Display
+xxxxName() = Sitka Display
+xxfamily() = Sitka Display
+-----------
+FontName() = Sitka Display Bold
+xxxxName() = Sitka Display Bold
+xxfamily() = Sitka Display
+-----------
+FontName() = Sitka Display Bold Italic
+xxxxName() = Sitka Display Bold Italic
+xxfamily() = Sitka Display
+-----------
+FontName() = Sitka Display Italic
+xxxxName() = Sitka Display Italic
+xxfamily() = Sitka Display
+-----------
+FontName() = Sitka Heading
+xxxxName() = Sitka Heading
+xxfamily() = Sitka Heading
+-----------
+FontName() = Sitka Heading Bold
+xxxxName() = Sitka Heading Bold
+xxfamily() = Sitka Heading
+-----------
+FontName() = Sitka Heading Bold Italic
+xxxxName() = Sitka Heading Bold Italic
+xxfamily() = Sitka Heading
+-----------
+FontName() = Sitka Heading Italic
+xxxxName() = Sitka Heading Italic
+xxfamily() = Sitka Heading
+-----------
+FontName() = Sitka Small
+xxxxName() = Sitka Small
+xxfamily() = Sitka Small
+-----------
+FontName() = Sitka Small Bold
+xxxxName() = Sitka Small Bold
+xxfamily() = Sitka Small
+-----------
+FontName() = Sitka Small Bold Italic
+xxxxName() = Sitka Small Bold Italic
+xxfamily() = Sitka Small
+-----------
+FontName() = Sitka Small Italic
+xxxxName() = Sitka Small Italic
+xxfamily() = Sitka Small
+-----------
+FontName() = Sitka Subheading
+xxxxName() = Sitka Subheading
+xxfamily() = Sitka Subheading
+-----------
+FontName() = Sitka Subheading Bold
+xxxxName() = Sitka Subheading Bold
+xxfamily() = Sitka Subheading
+-----------
+FontName() = Sitka Subheading Bold Italic
+xxxxName() = Sitka Subheading Bold Italic
+xxfamily() = Sitka Subheading
+-----------
+FontName() = Sitka Subheading Italic
+xxxxName() = Sitka Subheading Italic
+xxfamily() = Sitka Subheading
+-----------
+FontName() = Sitka Text
+xxxxName() = Sitka Text
+xxfamily() = Sitka Text
+-----------
+FontName() = Sitka Text Bold
+xxxxName() = Sitka Text Bold
+xxfamily() = Sitka Text
+-----------
+FontName() = Sitka Text Bold Italic
+xxxxName() = Sitka Text Bold Italic
+xxfamily() = Sitka Text
+-----------
+FontName() = Sitka Text Italic
+xxxxName() = Sitka Text Italic
+xxfamily() = Sitka Text
+-----------
+FontName() = Snap ITC
+xxxxName() = Snap ITC
+xxfamily() = Snap ITC
+-----------
+FontName() = Stencil
+xxxxName() = Stencil
+xxfamily() = Stencil
+-----------
+FontName() = Sylfaen
+xxxxName() = Sylfaen
+xxfamily() = Sylfaen
+-----------
+FontName() = Symbol
+xxxxName() = Symbol
+xxfamily() = Symbol
+-----------
+FontName() = Tahoma
+xxxxName() = Tahoma
+xxfamily() = Tahoma
+-----------
+FontName() = Tahoma Bold
+xxxxName() = Tahoma Bold
+xxfamily() = Tahoma
+-----------
+FontName() = Tempus Sans ITC
+xxxxName() = Tempus Sans ITC
+xxfamily() = Tempus Sans ITC
+-----------
+FontName() = Times New Roman
+xxxxName() = Times New Roman
+xxfamily() = Times New Roman
+-----------
+FontName() = Times New Roman Bold
+xxxxName() = Times New Roman Bold
+xxfamily() = Times New Roman
+-----------
+FontName() = Times New Roman Bold Italic
+xxxxName() = Times New Roman Bold Italic
+xxfamily() = Times New Roman
+-----------
+FontName() = Times New Roman Italic
+xxxxName() = Times New Roman Italic
+xxfamily() = Times New Roman
+-----------
+FontName() = Trebuchet MS
+xxxxName() = Trebuchet MS
+xxfamily() = Trebuchet MS
+-----------
+FontName() = Trebuchet MS Bold
+xxxxName() = Trebuchet MS Bold
+xxfamily() = Trebuchet MS
+-----------
+FontName() = Trebuchet MS Bold Italic
+xxxxName() = Trebuchet MS Bold Italic
+xxfamily() = Trebuchet MS
+-----------
+FontName() = Trebuchet MS Italic
+xxxxName() = Trebuchet MS Italic
+xxfamily() = Trebuchet MS
+-----------
+FontName() = Tw Cen MT
+xxxxName() = Tw Cen MT
+xxfamily() = Tw Cen MT
+-----------
+FontName() = Tw Cen MT Bold
+xxxxName() = Tw Cen MT Bold
+xxfamily() = Tw Cen MT
+-----------
+FontName() = Tw Cen MT Bold Italic
+xxxxName() = Tw Cen MT Bold Italic
+xxfamily() = Tw Cen MT
+-----------
+FontName() = Tw Cen MT Condensed
+xxxxName() = Tw Cen MT Condensed
+xxfamily() = Tw Cen MT Condensed
+-----------
+FontName() = Tw Cen MT Condensed Bold
+xxxxName() = Tw Cen MT Condensed Bold
+xxfamily() = Tw Cen MT Condensed
+-----------
+FontName() = Tw Cen MT Condensed Extra Bold
+xxxxName() = Tw Cen MT Condensed Extra Bold
+xxfamily() = Tw Cen MT Condensed Extra Bold
+-----------
+FontName() = Tw Cen MT Italic
+xxxxName() = Tw Cen MT Italic
+xxfamily() = Tw Cen MT
+-----------
+FontName() = Ubuntu
+xxxxName() = Ubuntu
+xxfamily() = Ubuntu
+-----------
+FontName() = Ubuntu Bold
+xxxxName() = Ubuntu Bold
+xxfamily() = Ubuntu
+-----------
+FontName() = Ubuntu Italic
+xxxxName() = Ubuntu Italic
+xxfamily() = Ubuntu
+-----------
+FontName() = Ubuntu Light
+xxxxName() = Ubuntu Light
+xxfamily() = Ubuntu Light
+-----------
+FontName() = Ubuntu Medium
+xxxxName() = Ubuntu Medium
+xxfamily() = Ubuntu Light
+-----------
+FontName() = Ubuntu Medium Italic
+xxxxName() = Ubuntu Medium Italic
+xxfamily() = Ubuntu Light
+-----------
+FontName() = Verdana
+xxxxName() = Verdana
+xxfamily() = Verdana
+-----------
+FontName() = Verdana Bold
+xxxxName() = Verdana Bold
+xxfamily() = Verdana
+-----------
+FontName() = Verdana Bold Italic
+xxxxName() = Verdana Bold Italic
+xxfamily() = Verdana
+-----------
+FontName() = Verdana Italic
+xxxxName() = Verdana Italic
+xxfamily() = Verdana
+-----------
+FontName() = Viner Hand ITC
+xxxxName() = Viner Hand ITC
+xxfamily() = Viner Hand ITC
+-----------
+FontName() = Vivaldi Italic
+xxxxName() = Vivaldi Italic
+xxfamily() = Vivaldi
+-----------
+FontName() = Vladimir Script
+xxxxName() = Vladimir Script
+xxfamily() = Vladimir Script
+-----------
+FontName() = Webdings
+xxxxName() = Webdings
+xxfamily() = Webdings
+-----------
+FontName() = Wide Latin
+xxxxName() = Wide Latin
+xxfamily() = Wide Latin
+-----------
+FontName() = Wingdings
+xxxxName() = Wingdings
+xxfamily() = Wingdings
+-----------
+FontName() = Wingdings 2
+xxxxName() = Wingdings 2
+xxfamily() = Wingdings 2
+-----------
+FontName() = Wingdings 3
+xxxxName() = Wingdings 3
+xxfamily() = Wingdings 3
+-----------
+FontName() = Yu Gothic Bold
+xxxxName() = Yu Gothic Bold
+xxfamily() = Yu Gothic
+-----------
+FontName() = Yu Gothic Light
+xxxxName() = Yu Gothic Light
+xxfamily() = Yu Gothic Light
+-----------
+FontName() = Yu Gothic Medium
+xxxxName() = Yu Gothic Medium
+xxfamily() = Yu Gothic Medium
+-----------
+FontName() = Yu Gothic Regular
+xxxxName() = Yu Gothic Regular
+xxfamily() = Yu Gothic
+-----------
+FontName() = Yu Gothic UI Bold
+xxxxName() = Yu Gothic UI Bold
+xxfamily() = Yu Gothic UI
+-----------
+FontName() = Yu Gothic UI Light
+xxxxName() = Yu Gothic UI Light
+xxfamily() = Yu Gothic UI Light
+-----------
+FontName() = Yu Gothic UI Regular
+xxxxName() = Yu Gothic UI Regular
+xxfamily() = Yu Gothic UI
+-----------
+FontName() = Yu Gothic UI Semibold
+xxxxName() = Yu Gothic UI Semibold
+xxfamily() = Yu Gothic UI Semibold
+-----------
+FontName() = Yu Gothic UI Semilight
+xxxxName() = Yu Gothic UI Semilight
+xxfamily() = Yu Gothic UI Semilight
+-----------
+
+Process finished with exit code 0
