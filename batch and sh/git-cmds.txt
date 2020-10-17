@@ -13,7 +13,7 @@ git config --global alias.soft 'reset --soft HEAD~'
 git config --global alias.hard 'reset --hard'
 git config --global alias.pbr 'push -u origin'
 git config --global alias.rdel 'push origin --delete'
-git config --global alias.ldel 'push origin --D'
+git config --global alias.ldel 'branch -d'
     ==> d for delete and D for force delete
 git config --global alias.fo 'fetch -p origin'
 
