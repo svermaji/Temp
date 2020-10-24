@@ -1,6 +1,6 @@
 set bg=%1
 
-if %bg%=="" (
+if "%bg%"=="" (
     set bg=1
 )
 
