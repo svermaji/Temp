@@ -1,1 +1,0 @@
-copy %1 C:\Users\sv\Desktop\rachana

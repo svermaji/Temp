@@ -1,1 +1,0 @@
-explorer "C:\Users\sv\Downloads\Telegram Desktop"
