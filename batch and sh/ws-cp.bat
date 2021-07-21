@@ -23,8 +23,11 @@ if "%env%"=="dit1" (
 if "%file%"=="sen" (
     set src=%src%x.jar
     set dest=%dest% /
+    rem ! sign is for eval and wait else there are value overwritten problems
+    call renjar.bat name-*.jar !src! !dest!
 )
 
+echo "src [%src%], dest [%dest%]"
 echo %time%
 \WinSCP\WinSCP.exe %usr%:%pwd%@ %srvr% /command "put %src% %dest%"
 echo %time%
