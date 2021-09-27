@@ -1,3 +1,4 @@
+cd ../..
 cd Core-Parent
 git p
 cd ../Core
