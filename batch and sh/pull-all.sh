@@ -1,4 +1,5 @@
-cd ../..
+# call from root
+
 cd Core-Parent
 git p
 cd ../Core
@@ -19,3 +20,4 @@ cd ../ResourceDownloader
 git p
 cd ../MouseMove
 git p
+cd ..
