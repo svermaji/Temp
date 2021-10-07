@@ -5,7 +5,10 @@ git config --global user.name "Shailendra Verma"
 
 git config --global alias.co checkout
 git config --global alias.cm 'commit -m'
-git config --global alias.st status
+git config --global alias.st 'status -sb'
+git config --global alias.cop '!git checkout $1 && git pull origin $1'
+git config --global help.autocorrect 20
+    ==> this auto corrects and run nearest suggestion in 2 sec
 git config --global alias.p pull
 git config --global alias.pu push
 git config --global alias.br branch
