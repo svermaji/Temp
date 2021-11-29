@@ -10,6 +10,8 @@ cd ../RunCommand
 git p
 cd ../SearchBigFile
 git p
+cd ../MatchPair
+git p
 cd ../Email
 git p
 cd ../Temp
