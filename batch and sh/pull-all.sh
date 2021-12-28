@@ -22,4 +22,6 @@ cd ../ResourceDownloader
 git p
 cd ../MouseMove
 git p
+cd ../MouseMoveAndClick
+git p
 cd ..
