@@ -25,3 +25,6 @@ git p
 cd ../MouseMoveAndClick
 git p
 cd ..
+cd ../TimesTable
+git p
+cd ..
